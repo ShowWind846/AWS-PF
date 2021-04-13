@@ -1,0 +1,39 @@
+<main>
+  <div class="mypage">
+    <span class="page-title">　マイページ　</span>
+    <div class="contents">
+      <table class="myinfo table">
+        <tbody>
+          <tr>
+            <td>氏名</td>
+            <td><%= @user.last_name + @user.first_name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+    
+          <!--テストエリア-->
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="#text1" class="nav-link" data-toggle="tab">タブ１</a>
+            </li>
+            <li class="nav-item">
+              <a href="#text2" class="nav-link" data-toggle="tab">タブ2</a>
+            </li>
+          </ul>
+          
+          <div class="tab-content">
+            <div id="text1" class="tab-pane active">
+              TEXT1
+            </div>
+            <div id="text2" class="tab-pane">
+              TEXT2
+            </div>
+          </div>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

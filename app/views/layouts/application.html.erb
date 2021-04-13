@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html>
+  <head>
+    <title>SUGGESTooL</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!--ファーストヘッダー-->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark p-4" style="background-color: #000066;">
+        <%= link_to "SUGGESTooL", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+          <!--タブ機能記述-->
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#text1" class="nav-link pill-1" data-toggle="tab">Sales.</a>
+            </li>
+            <li class="nav-item">
+              <a href="#text2" class="nav-link pill-2" data-toggle="tab">Corp.</a>
+            </li>
+          </ul>
+          <!--kokomade-->
+        </div>
+      </nav>
+    </header>
+    <!--セカンドヘッダー-->
+    <div class="second-header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse tab-content" id="navbarNavDropdown">
+          <!--セールス側ナビタブ-->
+            <div class="tab-content">
+              <div id="text1" class="tab-pane active">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <%= link_to "マイページ", mypage_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログイン", new_user_session_path,class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+                  </li>
+                </ul>
+              </div>
+          <!--企業側ナビタブ-->
+            <div id="text2" class="tab-pane">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path,class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--ナビタブコンテンツここまで-->
+          </div>
+        </div>
+      </nav>
+    </div>
+    <%= yield %>
+  </body>
+  
+</html>
