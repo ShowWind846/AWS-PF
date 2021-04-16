@@ -1,0 +1,31 @@
+<main>
+  <div class="user-index-page">
+    <span class="page-title">　登録ユーザー一覧　</span>
+    <div class="contents">
+      <table class="table table-sm table-hover table-light user-index-table">
+        <thead>
+          <th width="240px">名前</th>
+          <th witdh="240px">会社名</th>
+          <th width="120px">フォロー</th>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user_path(user.id) do %><%= user.last_name + " " + user.first_name %><% end %></td>
+            <td>会社名</td>
+            <td>
+              <!--if文 exsists?でフォロー/解除の表示を切り替えする-->
+            <%= form_with url: relationships_follow_path, local: true do |f| %>
+              <%= f.hidden_field :user_id, :value => user.id %>
+              <%= f.hidden_field :corp_id, :value => current_corp.id %>
+              <%= f.submit "フォローする", class: "btn btn-sm btn-success" %>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users %>
+    </div>
+  </div>
+</main>

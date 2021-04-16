@@ -1,0 +1,27 @@
+<main>
+  <div class="fav-index-page">
+    <span class="corp-page-title">　お気に入りユーザー一覧　</span>
+    <table class="table table-hover fav-index-table">
+      <thead>
+        <th>name</th>
+        <th>company</th>
+        <th>message</th>
+        <th>登録or解除</th>
+      </thead>
+      <tbody>
+        <% @favorites.each do |favo| %>
+        <% @user = User.find(favo.user_id) %>
+        <tr>
+          <td><%= @user.last_name + " " + @user.first_name %></td>
+          <td></td>
+          <td></td>
+          <td>
+
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</main>

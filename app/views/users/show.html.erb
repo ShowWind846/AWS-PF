@@ -1,0 +1,12 @@
+<main>
+  <div class="user-show-page">
+    <span class="page-title">　XX XX　</span>
+    <div class="contents">
+      <%= @user.last_name %>
+      <!--お気に入り/解除ボタン-->
+
+        <%= render 'relationships/fav', user: @user %>
+
+    </div>
+  </div>
+</main>

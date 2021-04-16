@@ -6,11 +6,11 @@
     <%= render "users/shared/error_messages", resource: resource %>
     <div class="field">
       <%= f.label :last_name, "姓" %><br />
-      <%= f.email_field :last_name, autofocus: true, class: "form-control" %>
+      <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :first_name, "名" %><br />
-      <%= f.email_field :first_name, class: "form-control" %>
+      <%= f.text_field :first_name, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :email %><br />
