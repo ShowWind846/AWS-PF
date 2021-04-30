@@ -1,0 +1,40 @@
+<main>
+  <div class="chat-room-page">
+    <span class="chat-page-title">　チャットルーム　</span>
+    <div class="online-user">
+      member : [ <%= @user.last_name + " " + @user.first_name %> / <%= @corp.email %> ]
+    </div>
+    <!--TEST ZONE-->
+    <div class="chat-paginate">
+      <%= paginate @messages %>
+    </div>
+    <table class="table">
+      <tbody>
+        <% @messages.each do |message| %>
+        <tr>
+          <td>
+            <%= message.message %>
+            <div class="chat-time">
+              [<%= l message.created_at, format: :short %>]
+            </div>
+            <div class="user-name">
+              <%= message.corp.email %><%= message.user %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= form_with model: @message, url: messages_path, local: true do |f| %>
+      <%= f.text_field :message, class: "message-form" %>
+    <!--hidden-->
+      <%= f.hidden_field :room_id, value: params[:id] %>
+        <% if user_signed_in? %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+        <% elsif corp_signed_in? %>
+          <%= f.hidden_field :corp_id, value: current_corp.id %>
+        <% end %>
+      <%= f.submit "　送信　", class: "btn btn-sm btn-success submit-form" %>
+    <% end %>
+  </div>
+</main>

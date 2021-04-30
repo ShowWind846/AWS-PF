@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_161113) do
+ActiveRecord::Schema.define(version: 2021_04_23_083512) do
 
   create_table "corps", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 2021_04_15_161113) do
     t.index ["reset_password_token"], name: "index_corps_on_reset_password_token", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "corp_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["corp_id"], name: "index_messages_on_corp_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "visited_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "checked", default: false, null: false
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,6 +54,13 @@ ActiveRecord::Schema.define(version: 2021_04_15_161113) do
     t.integer "corp_id"
     t.index ["corp_id"], name: "index_relationships_on_corp_id"
     t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "relationship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["relationship_id"], name: "index_rooms_on_relationship_id"
   end
 
   create_table "suggests", force: :cascade do |t|

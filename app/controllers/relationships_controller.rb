@@ -2,10 +2,10 @@ class RelationshipsController < ApplicationController
   # お気に入り機能のアクション記述
   def create
     @user = User.find(params[:user_id])
-    @favorite = Relationship.new
-    @favorite.user_id = @user.id
-    @favorite.corp_id = current_corp.id
-    @favorite.save
+    @relationship = Relationship.create(user_id: @user.id, corp_id: current_corp.id)
+    Room.create(relationship_id: @relationship.id)
+    @corp = Corp.find(current_corp.id)
+    @corp.create_notification_follow!(current_corp, @user)
     redirect_back fallback_location: root_path, success: 'お気に入りに登録しました。'
   end
 

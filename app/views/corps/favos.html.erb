@@ -9,14 +9,15 @@
         <th>登録or解除</th>
       </thead>
       <tbody>
-        <% @favorites.each do |favo| %>
-        <% @user = User.find(favo.user_id) %>
+        <% @relationships.each do |follow| %>
+        <% @user = User.find(follow.user_id) %>
+        <% @room = Room.find_by(relationship_id: follow.id) %>
         <tr>
           <td><%= @user.last_name + " " + @user.first_name %></td>
-          <td></td>
-          <td></td>
+          <td>company_name</td>
+          <td><%= link_to " ChatRoom ", room_path(@room.id), class: "btn btn-sm btn-primary" %> </td>
           <td>
-
+             <%= render 'relationships/fav', user: @user %>
           </td>
         </tr>
         <% end %>

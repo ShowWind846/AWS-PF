@@ -14,12 +14,8 @@
             <td><%= link_to user_path(user.id) do %><%= user.last_name + " " + user.first_name %><% end %></td>
             <td>会社名</td>
             <td>
-              <!--if文 exsists?でフォロー/解除の表示を切り替えする-->
-            <%= form_with url: relationships_follow_path, local: true do |f| %>
-              <%= f.hidden_field :user_id, :value => user.id %>
-              <%= f.hidden_field :corp_id, :value => current_corp.id %>
-              <%= f.submit "フォローする", class: "btn btn-sm btn-success" %>
-            <% end %>
+            <!--if文 exsists?でフォロー/解除の表示を切り替えする-->
+            <%= render 'relationships/fav', user: user %>
             </td>
           </tr>
           <% end %>

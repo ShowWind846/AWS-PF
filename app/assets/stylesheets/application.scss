@@ -14,7 +14,7 @@
  *= require_self
  *= require font-awesome
  */
- 
+
  @import "bootstrap";
  @import "font-awesome";
  /////全てのページに適用するCSS/////
@@ -24,17 +24,38 @@
     box-sizing: border-box;
  }
  main {
-    margin-top: 50px;
+    margin-top: 20px;
  }
  header {
-  height: 88px;
+  //height: 88px;
  }
- .second-header {
+ .title-logo {
+    color: #000066;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow:
+      1px 0 0 silver,
+      0 1px 0 silver,
+      -1px 0 0 silver,
+      0 -1px 0 silver
+ }
+/////セカンドヘッダー/////
+.second-header {
   color: white;
-  height: 56px;
   background-color: #6699FF;
- }
- .page-title {
+}
+.second-navbar {
+  height: 56px;
+}
+.container-fluid {
+  height: 56px;
+}
+.login-message {
+  height: 24px;
+  color: #333333;
+  vertical-align: middle;
+}
+.page-title {
     color: white;
     background-color: #6699FF;
     padding: 5px;
@@ -59,27 +80,54 @@
    color: white;
  }
  /////メインページ/////
+ .test-page {
+    //width: 100vw;
+    height: 100vh;
+    background: image-url('topimage.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+ }
  .main-page {
   width: 600px;
   margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
  }
- /////新規登録ページ/////
+ .main-message {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 5px 5px black;
+  margin-bottom: 30px;
+ }
+ .main-page p {
+   display: inline-block;
+   margin-top: 20px;
+   font-weight: bold;
+   color: white;
+   text-shadow: 0 5px 5px black;
+ }
+ .top-btn {
+   margin-right: 20px;
+ }
+ //セールス側新規登録ページ/////
  .sign-up-page {
-    width: 400px;
+    width: 600px;
     margin: 0 auto;
  }
  .field {
   margin-top: 10px;
  }
- .actions {
-  margin-top: 10px;
- }
  .must {
   bgcolor: red;
  }
- /////ログインページ/////
+ .form-control::placeholder {
+   color: #BBBBBB;
+ }
+ //セールス側ログインページ/////
  .login-page {
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
  }
  /////マイページ/////
@@ -97,10 +145,10 @@
  }
  /////企業ログインページ/////
  .corp-login-page {
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
  }
  .corp-registration-page {
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
  }

@@ -1,0 +1,22 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.notification-index {
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.notification-page-title {
+  color: white;
+  background-color: #6699FF;
+  padding: 5px;
+  display: inline-block;
+  margin-bottom: 30px;
+  float: left;
+}
+.destroy-btn {
+  float: right;
+}
+.notification-index-contents {
+  clear: left;
+}

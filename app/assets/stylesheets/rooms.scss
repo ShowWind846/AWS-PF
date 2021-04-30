@@ -1,0 +1,39 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat-room-page {
+  width: 600px;
+  margin: 0 auto;
+}
+.message-form {
+  width: 460px;
+  height: 30px;
+}
+.submit-form {
+  width: 100px;
+  height: 30px;
+  margin-left: 20px;
+}
+.chat-page-title {
+  color: white;
+  background-color: #6699FF;
+  padding: 5px;
+  display: inline-block;
+  margin-bottom: 30px;
+  margin-right: 180px;
+  float: left;
+ }
+.chat-paginate {
+  display: inline-block;
+  float: right;
+}
+.online-user {
+  float: right;
+}
+.chat-time {
+  float: right;
+  margin-left: 10px;
+}
+.user-name {
+  float: right;
+}

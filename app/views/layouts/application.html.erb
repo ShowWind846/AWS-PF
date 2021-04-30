@@ -8,13 +8,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/0b72d9d640.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <!--ファーストヘッダー-->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark p-4" style="background-color: #000066;">
-        <%= link_to "SUGGESTooL", root_path, class: "navbar-brand" %>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000066;">
+        <!--タイトルロゴ（ヘッダー左部分)-->
+        <%= link_to "SUGGESTooL", root_path, class: "title-logo" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,10 +26,14 @@
             <!--タブ機能記述-->
             <ul class="nav nav-pills">
               <li class="nav-item">
-                <a href="#text1" class="nav-link pill-1 active" data-toggle="tab">Sales.</a>
+                <a href="#text1" class="nav-link pill-1 active" data-toggle="tab">
+                  <i class="fas fa-user-tie"> Sales.</i>
+                </a>
               </li>
               <li class="nav-item">
-                <a href="#text2" class="nav-link pill-2" data-toggle="tab">Corp.</a>
+                <a href="#text2" class="nav-link pill-2" data-toggle="tab">
+                  <i class="fas fa-building"> Corps.</i>
+                </a>
               </li>
             </ul>
             <!--kokomade-->
@@ -36,8 +43,18 @@
     </header>
     <!--セカンドヘッダー-->
     <div class="second-header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light second-navbar">
         <div class="container-fluid">
+          <!--ログインメッセージ-->
+          <div class="login-message">
+            <% if user_signed_in? %>
+              <p> You are already logged in. (Sales) </p>
+            <% elsif corp_signed_in? %>
+              <p> You are already logged in. (Corps) </p>
+            <% else %>
+              <p> Please Login.</p>
+            <% end %>
+          </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,15 +63,31 @@
             <div class="tab-content">
               <div id="text1" class="tab-pane active">
                 <ul class="navbar-nav">
+          <!--ログイン時-->
                   <% if user_signed_in? %>
                     <li class="nav-item">
-                      <%= link_to "マイページ", mypage_path, class: "nav-link" %>
+                      <%= link_to notifications_path, class: "nav-link" do %>
+                        <% if unchecked_notifications.any? %>
+                          <font color="red"><i class="fas fa-exclamation-circle"> Notice</i></font>
+                        <% else %>
+                          <i class="fas fa-circle"> Notice</i>
+                        <% end %>
+                      <% end %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "フォロー", users_path, class: "nav-link" %>
+                      <%= link_to mypage_path, class: "nav-link" do %>
+                        <i class="fas fa-user"> Mypage</i>
+                      <% end %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                      <%= link_to users_path, class: "nav-link disabled" do %>
+                        <i class="fas fa-users"> UserList</i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                        <i class="fas fa-sign-out-alt"> Logout</i>
+                      <% end %>
                     </li>
                   <% elsif corp_signed_in? %>
                     <li class="nav-item">
@@ -62,10 +95,19 @@
                     </li>
                   <% else %>
                     <li class="nav-item">
-                      <%= link_to "ログイン", new_user_session_path,class: "nav-link" %>
+                      <%= link_to user_about_path,class: "nav-link" do %>
+                        <i class="fas fa-question"> About</i>
+                      <% end %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+                      <%= link_to new_user_session_path,class: "nav-link" do %>
+                        <i class="fas fa-sign-in-alt"> Login</i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to new_user_registration_path, class: "nav-link" do %>
+                        <i class="far fa-address-card"> Signup</i>
+                      <% end %>
                     </li>
                   <% end %>
                 </ul>
@@ -79,20 +121,35 @@
                   </li>
                 <% elsif corp_signed_in? %>
                   <li class="nav-item">
-                    <%= link_to "フォロー", users_path, class: "nav-link" %>
+                    <%= link_to users_path, class: "nav-link" do %>
+                      <i class="fas fa-users"> UserList</i>
+                    <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "お気に入り", corps_favos_path, class: "nav-link" %>
+                    <%= link_to corps_favos_path, class: "nav-link" do %>
+                      <i class="fas fa-user-tag"> Follow</i>
+                    <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_corp_session_path, method: :delete, class: "nav-link" %>
+                    <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                    <i class="fas fa-sign-out-alt"> Logout</i>
+                    <% end %>
                   </li>
                 <% else %>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_corp_session_path,class: "nav-link" %>
+                      <%= link_to corp_about_path,class: "nav-link" do %>
+                        <i class="fas fa-question"> About</i>
+                      <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_corp_registration_path, class: "nav-link" %>
+                  <%= link_to new_corp_session_path,class: "nav-link" do %>
+                    <i class="fas fa-sign-in-alt"> Login</i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_corp_registration_path, class: "nav-link" do %>
+                    <i class="far fa-address-card"> Signup</i>
+                  <% end %>
                 </li>
                 <% end %>
               </ul>

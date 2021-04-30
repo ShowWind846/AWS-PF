@@ -2,9 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-index-page {
-    width: 800px;
-    margin: 0 auto;
+  width: 800px;
+  margin: 0 auto;
 }
 .user-index-table th, .user-index-table td {
-    padding: 10px;
+  padding: 10px;
+}
+/////ユーザー詳細ページ/////
+.user-show-page {
+  width: 600px;
+  margin: 0 auto;
+}
+// アバウトページ
+.user-about-page {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.menu-head {
+  position: relative;
+}
+.menu-head p {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.menu-head-img {
+  width: 600px;
+  height: 50px;
+}
+.submenu-head {
+  position: relative;
+}
+.submenu-head p {
+  font-weight: bold;
+  font-size: 18px;
+  color: grey;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+}
+.submenu-head-img {
+  width: 600px;
+  height: 40px;
+  border-bottom: solid 1px #CCC;
+  border-top: solid 1px #CCC;
+  margin-bottom: 10px;
 }
