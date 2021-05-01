@@ -39,6 +39,19 @@
       -1px 0 0 silver,
       0 -1px 0 silver
  }
+/////ヘッダー/////ピル部分/////
+ .user-image {
+   margin-right: 20px;
+ }
+ .pill-1 {
+   background-color: #000099;
+   color: white;
+   margin-right: 10px;
+ }
+ .pill-2 {
+   background-color: #000099;
+   color: white;
+ }
 /////セカンドヘッダー/////
 .second-header {
   color: white;
@@ -51,9 +64,14 @@
   height: 56px;
 }
 .login-message {
-  height: 24px;
-  color: #333333;
+  color: grey;
   vertical-align: middle;
+}
+.login-user-image span {
+  font-size: 15px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 7px 0 0 10px;
 }
 .page-title {
     color: white;
@@ -68,16 +86,6 @@
     padding: 5px;
     display: inline-block;
     margin-bottom: 30px;
- }
- /////ヘッダー/////ピル部分/////
- .pill-1 {
-   background-color: #000099;
-   color: white;
-   margin-right: 10px;
- }
- .pill-2 {
-   background-color: #000099;
-   color: white;
  }
  /////メインページ/////
  .test-page {
@@ -125,6 +133,9 @@
  .form-control::placeholder {
    color: #BBBBBB;
  }
+ .actions {
+   margin-top: 20px;
+ }
  //セールス側ログインページ/////
  .login-page {
   width: 600px;
@@ -144,11 +155,7 @@
   margin: 0 auto;
  }
  /////企業ログインページ/////
- .corp-login-page {
-  width: 600px;
-  margin: 0 auto;
- }
- .corp-registration-page {
+ .corp-login-page, .corp-registration-page {
   width: 600px;
   margin: 0 auto;
  }

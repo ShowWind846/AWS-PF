@@ -8,8 +8,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # favoriteアクションを記述する
-  def favorites
+  def mypage
+    @user = current_user
+  end
+
+  def follow
+    @user = User.find(current_user.id)
+    @relationships = Relationship.where(user_id: current_user.id).order(created_at: :desc)
   end
 
 end

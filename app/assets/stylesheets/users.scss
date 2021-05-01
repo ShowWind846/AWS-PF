@@ -1,6 +1,11 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.sign-up-page label, .login-page label {
+  font-size: 14px;
+  background-color: #99CCFF;
+  padding: 1px 5px;
+}
 .user-index-page {
   width: 800px;
   margin: 0 auto;
@@ -51,4 +56,31 @@
   border-bottom: solid 1px #CCC;
   border-top: solid 1px #CCC;
   margin-bottom: 10px;
+}
+//ユーザー：フォロワー一覧
+.follower-list {
+  width: 600px;
+  margin: 0 auto;
+}
+.follower-table {
+  margin-top: 10px;
+}
+.follower-table td {
+  border-top: solid 1px #DDDDDD;
+  border-bottom: solid 1px #DDDDDD;
+}
+//編集ページ
+.user-edit-page {
+  width: 600px;
+  margin: 0 auto;
+}
+.user-edit-page label {
+  font-size: 13px;
+  padding: 2px 4px;
+  color: white;
+  background-color: #75A9FF;
+}
+.user-edit-page i {
+  font-size: 13px;
+  color: grey;
 }

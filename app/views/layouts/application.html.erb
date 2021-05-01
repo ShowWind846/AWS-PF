@@ -5,7 +5,6 @@
     <title>SUGGESTooL</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--fontawesome-->
@@ -27,12 +26,12 @@
             <ul class="nav nav-pills">
               <li class="nav-item">
                 <a href="#text1" class="nav-link pill-1 active" data-toggle="tab">
-                  <i class="fas fa-user-tie"> Sales.</i>
+                  <i class="fas fa-user-tie"> セールス</i>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#text2" class="nav-link pill-2" data-toggle="tab">
-                  <i class="fas fa-building"> Corps.</i>
+                  <i class="fas fa-user-md"> ドクター</i>
                 </a>
               </li>
             </ul>
@@ -48,11 +47,17 @@
           <!--ログインメッセージ-->
           <div class="login-message">
             <% if user_signed_in? %>
-              <p> You are already logged in. (Sales) </p>
+              <div class="login-user-image">
+                <%= attachment_image_tag current_user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+                <span><%= current_user.last_name + " " + current_user.first_name %></span>
+              </div>
             <% elsif corp_signed_in? %>
-              <p> You are already logged in. (Corps) </p>
+              <div class="login-user-image">
+                <%= attachment_image_tag current_corp, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+                <span><%= current_corp.name %></span>
+              </div>
             <% else %>
-              <p> Please Login.</p>
+              <p> サービスをご利用の場合はログインしてください。</p>
             <% end %>
           </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,27 +71,27 @@
           <!--ログイン時-->
                   <% if user_signed_in? %>
                     <li class="nav-item">
+                      <%= link_to user_mypage_path, class: "nav-link" do %>
+                        <i class="fas fa-user"> マイページ</i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
                       <%= link_to notifications_path, class: "nav-link" do %>
                         <% if unchecked_notifications.any? %>
-                          <font color="red"><i class="fas fa-exclamation-circle"> Notice</i></font>
+                          <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
                         <% else %>
-                          <i class="fas fa-circle"> Notice</i>
+                          <i class="fas fa-circle"> 通知</i>
                         <% end %>
                       <% end %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to mypage_path, class: "nav-link" do %>
-                        <i class="fas fa-user"> Mypage</i>
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to users_path, class: "nav-link disabled" do %>
-                        <i class="fas fa-users"> UserList</i>
+                      <%= link_to user_followers_path, class: "nav-link" do %>
+                        <i class="fas fa-users"> フォロワー</i>
                       <% end %>
                     </li>
                     <li class="nav-item">
                       <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
-                        <i class="fas fa-sign-out-alt"> Logout</i>
+                        <i class="fas fa-sign-out-alt"> ログアウト</i>
                       <% end %>
                     </li>
                   <% elsif corp_signed_in? %>
@@ -96,17 +101,17 @@
                   <% else %>
                     <li class="nav-item">
                       <%= link_to user_about_path,class: "nav-link" do %>
-                        <i class="fas fa-question"> About</i>
+                        <i class="fas fa-question-circle"> サービスについて</i>
                       <% end %>
                     </li>
                     <li class="nav-item">
                       <%= link_to new_user_session_path,class: "nav-link" do %>
-                        <i class="fas fa-sign-in-alt"> Login</i>
+                        <i class="fas fa-sign-in-alt"> ログイン(セールス)</i>
                       <% end %>
                     </li>
                     <li class="nav-item">
                       <%= link_to new_user_registration_path, class: "nav-link" do %>
-                        <i class="far fa-address-card"> Signup</i>
+                        <i class="fas fa-address-card"> 新規登録</i>
                       <% end %>
                     </li>
                   <% end %>
@@ -121,34 +126,39 @@
                   </li>
                 <% elsif corp_signed_in? %>
                   <li class="nav-item">
+                  <%= link_to corp_mypage_path, class: "nav-link" do %>
+                    <i class="fas fa-user"> マイページ</i>
+                  <% end %>
+                  </li>
+                  <li class="nav-item">
                     <%= link_to users_path, class: "nav-link" do %>
-                      <i class="fas fa-users"> UserList</i>
+                      <i class="fas fa-users"> セールスを探す</i>
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to corps_favos_path, class: "nav-link" do %>
-                      <i class="fas fa-user-tag"> Follow</i>
+                    <%= link_to favorites_path, class: "nav-link" do %>
+                      <i class="fas fa-user-tag"> フォロー</i>
                     <% end %>
                   </li>
                   <li class="nav-item">
                     <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
-                    <i class="fas fa-sign-out-alt"> Logout</i>
+                    <i class="fas fa-sign-out-alt"> ログアウト</i>
                     <% end %>
                   </li>
                 <% else %>
                 <li class="nav-item">
-                      <%= link_to corp_about_path,class: "nav-link" do %>
-                        <i class="fas fa-question"> About</i>
-                      <% end %>
+                  <%= link_to corp_about_path,class: "nav-link" do %>
+                    <i class="fas fa-question-circle"> サービスについて</i>
+                  <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to new_corp_session_path,class: "nav-link" do %>
-                    <i class="fas fa-sign-in-alt"> Login</i>
+                    <i class="fas fa-sign-in-alt"> ログイン(ドクター)</i>
                   <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to new_corp_registration_path, class: "nav-link" do %>
-                    <i class="far fa-address-card"> Signup</i>
+                    <i class="fas fa-address-card"> 新規登録</i>
                   <% end %>
                 </li>
                 <% end %>

@@ -1,0 +1,18 @@
+<main>
+  <div class="profile">
+    <div class="name-and-image">
+      <%= attachment_image_tag @corp, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
+      <p><%= @corp.name %></p>
+    </div>
+    <div class="comment">
+      <div class="balloon">
+        <p>　<%= @corp.introduction %>　</p>
+      </div>
+    </div>
+    <%= link_to "　メッセージを送信する　", root_path, class: "btn btn-outline-success rounded-pill" %>
+    <div class="first-day">
+      <br>
+      <i class="far fa-calendar-alt"> <%= l @corp.created_at, format: :first %> からSUGGESTooLを利用しています</i>
+    </div>
+  </div>
+</main>

@@ -25,15 +25,26 @@
  }
 .chat-paginate {
   display: inline-block;
+  margin-top: 5px;
   float: right;
 }
-.online-user {
+.talkroom-user {
   float: right;
 }
-.chat-time {
-  float: right;
-  margin-left: 10px;
+.talkroom-user a {
+  color: grey;
+}
+.message-table {
+  margin-top: 10px;
 }
 .user-name {
   float: right;
+}
+.sales-name {
+  background-color: #99CCFF;
+  padding: 1px 3px;
+}
+.doctor-name {
+  background-color: #FFCCCC;
+  padding: 1px 3px;
 }

@@ -3,7 +3,7 @@ class Corp < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  attachment :profile_image
   # association
   has_many :relationships, dependent: :destroy
   has_many :corps_users, through: :relationships, source: :user
