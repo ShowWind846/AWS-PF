@@ -1,21 +1,28 @@
 <main>
   <div class="fav-index-page">
-    <span class="corp-page-title">　お気に入りユーザー一覧　</span>
+    <span class="corp-page-title">　フォローしているセールス一覧　</span>
     <table class="table table-hover fav-index-table">
       <thead>
-        <th>name</th>
-        <th>company</th>
-        <th>message</th>
-        <th>登録or解除</th>
+        <th>名前</th>
+        <th width="200px">所属組織</th>
+        <th width="110px">担当エリア</th>
+        <th width="180px">メッセージ</th>
+        <th width="120px"></th>
       </thead>
       <tbody>
         <% @relationships.each do |follow| %>
         <% @user = User.find(follow.user_id) %>
         <% @room = Room.find_by(relationship_id: follow.id) %>
         <tr>
-          <td><%= @user.last_name + " " + @user.first_name %></td>
-          <td>company_name</td>
-          <td><%= link_to " ChatRoom ", room_path(@room.id), class: "btn btn-sm btn-primary" %> </td>
+          <td class="align-middle sales-index-name">
+            <%= link_to user_path(@user.id) do %>
+              <%= attachment_image_tag @user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "profile-image" %>
+              <p><%= @user.last_name + " " + @user.first_name %></p>
+            <% end %>
+          </td>
+          <td class="align-middle"><%= @user.company %></td>
+          <td class="align-middle"><%= @user.area %></td>
+          <td><%= link_to " メッセージを送る ", room_path(@room.id), class: "btn btn-outline-primary" %> </td>
           <td>
              <%= render 'relationships/fav', user: @user %>
           </td>

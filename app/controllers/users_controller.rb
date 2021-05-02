@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.page(params[:page]).per(10)
+    #@users = User.page(params[:page]).per(10)
+    @search = User.ransack(params[:q])
+    @users = @search.result(distinct: true).page(params[:page]).per(20)
+    #binding.pry
   end
 
   def show

@@ -32,6 +32,17 @@
 .fav-index-table td, .fav-index-table th {
   border-bottom: solid 1px #DDDDDD;
 }
+.profile-image {
+  border-radius: 50%;
+}
+.sales-index-name {
+  position: relative;
+}
+.sales-index-name p {
+  position: absolute;
+  left: 65px;
+  top: 33%;
+}
 // 企業側アバウトページ
 .corp-about-page {
   width: 600px;

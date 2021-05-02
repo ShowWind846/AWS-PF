@@ -10,8 +10,23 @@
   width: 800px;
   margin: 0 auto;
 }
-.user-index-table th, .user-index-table td {
+.profile-image {
+  border-radius: 50%;
+}
+.sales-index-name {
+  position: relative;
+}
+.sales-index-name p {
+  position: absolute;
+  left: 65px;
+  top: 33%;
+}
+.sales-index-table th, .sales-index-table td {
+  color: grey;
   padding: 10px;
+}
+.sales-index-name a {
+  color: grey;
 }
 /////ユーザー詳細ページ/////
 .user-show-page {

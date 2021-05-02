@@ -38,6 +38,12 @@
           </div>
         </div>
         <div class="field row">
+          <div class="col-6">
+            <%= f.label :area, "担当エリア" %><br />
+            <%= f.select :area, User.areas.keys, {}, class: "form-control" %>
+          </div>
+        </div>
+        <div class="field row">
           <div class="col-12">
             <%= f.label :introduction, "ひとこと自己紹介" %><br />
             <%= f.text_field :introduction, class: "form-control" %>
