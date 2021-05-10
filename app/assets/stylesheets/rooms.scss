@@ -31,20 +31,27 @@
 .talkroom-user {
   float: right;
 }
-.talkroom-user a {
-  color: grey;
-}
+  .talkroom-user a {
+    color: grey;
+  }
+//チャット表示部分
 .message-table {
   margin-top: 10px;
 }
-.user-name {
-  float: right;
-}
-.sales-name {
-  background-color: #99CCFF;
-  padding: 1px 3px;
-}
-.doctor-name {
-  background-color: #FFCCCC;
-  padding: 1px 3px;
-}
+  .sales-image, .doctor-image {
+    float: left;
+  }
+  .message-area {
+    float: left;
+  }
+  .sales-name, .doctor-name {
+    float: right;
+  }
+  .sales-name {
+    background-color: #99CCFF;
+    padding: 1px 3px;
+  }
+  .doctor-name {
+    background-color: #FFCCCC;
+    padding: 1px 3px;
+  }

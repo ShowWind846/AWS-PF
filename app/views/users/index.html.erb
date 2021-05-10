@@ -1,7 +1,11 @@
 <main>
   <div class="user-index-page">
-    <span class="page-title">　興味のあるセールスを探す　</span>
+    <span class="corp-page-title">　興味のあるセールスを探す　</span>
+
+    <div class="search-area">
       <%= render 'search_form', url: users_path, q: @q %>
+    </div>
+
     <div class="contents">
       <table class="table table-hover sales-index-table">
         <thead>

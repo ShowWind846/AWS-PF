@@ -2,7 +2,7 @@
   <div class="profile">
     <div class="name-and-image">
       <%= attachment_image_tag @corp, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
-      <p><%= @corp.name %></p>
+      <p><%= @corp.last_name + " " + @corp.first_name %> </p>
       <div class="setting-link">
         <% if @corp.id == current_corp.id %>
           <%= link_to edit_corp_registration_path do %><i class="fas fa-cog"></i><% end %>
@@ -14,7 +14,15 @@
         <p>　<%= @corp.introduction %>　</p>
       </div>
     </div>
-    <%= link_to "　メッセージを送信する　", root_path, class: "btn btn-outline-success rounded-pill" %>
+    <!--所属医療機関名と所在地-->
+      <div class="row">
+        <div class="col-6">
+          <%= link_to root_path, class: "btn btn-outline-success disabled rounded-pill w-100" do %><%= @corp.hospital %><% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to root_path, class: "btn disabled btn-outline-danger rounded-pill w-100" do %><%= @corp.area %><% end %>
+        </div>
+      </div>
     <div class="first-day">
       <br>
       <i class="far fa-calendar-alt"> <%= l @corp.created_at, format: :first %> からSUGGESTooLを利用しています</i>

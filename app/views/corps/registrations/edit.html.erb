@@ -5,15 +5,18 @@
       <p>　登録情報編集 </p>
     </div>
     <div class="container">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|  %>
       <%= render "corps/shared/error_messages", resource: resource %>
         <div class="field row">
           <div class="col-6">
-            <%= f.label :name, "お名前" %><br />
-            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+            <%= f.label :last_name, "姓" %><br />
+            <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="col-6">
+            <%= f.label :first_name, "名" %><br />
+            <%= f.text_field :first_name, class: "form-control" %>
           </div>
         </div>
-
         <div class="field row">
           <div class="col-12">
             <%= f.label :profile_image, "プロフィール画像" %>
@@ -21,11 +24,20 @@
             <%= f.attachment_field :profile_image, placeholder: "プロフィール画像",class: "form-control-file" %>
           </div>
         </div>
-
         <div class="field row">
-          <div class="col-6">
+          <div class="col-12">
             <%= f.label :email, "メールアドレス" %><br />
             <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+          </div>
+        </div>
+        <div class="field row">
+          <div class="col-6">
+            <%= f.label :hospital, "医療機関名" %><br />
+            <%= f.text_field :hospital, class: "form-control" %>
+          </div>
+          <div class="col-6">
+            <%= f.label :area, "医療機関所在地" %><br />
+            <%= f.select :area, Corp.areas.keys, {}, class: "form-control" %>
           </div>
         </div>
         <div class="field row">
@@ -55,14 +67,16 @@
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "ご本人確認のためご入力ください。" %>
           </div>
         </div>
-      </div>
-      <div class="actions row">
-        <div class="col-6">
-          <%= f.submit "Update", class: "btn btn-outline-primary w-100" %>
+
+        <div class="actions row">
+          <div class="col-6">
+            <%= f.submit "更新する", class: "btn btn-outline-primary w-100" %>
+          </div>
+          <div class="col-6">
+            <%= link_to "前の画面に戻る", corp_mypage_path, class: "btn btn-outline-success w-100" %>
+          </div>
         </div>
-        <div class="col-6">
-          <%= link_to "Back", corp_path(current_corp.id), class: "btn btn-outline-success w-100" %>
-        </div>
+
       <% end %>
     </div>
   </div>

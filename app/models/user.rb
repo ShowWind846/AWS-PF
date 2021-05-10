@@ -4,8 +4,16 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :timeoutable
   attachment :profile_image
+
+  def self.search(search)
+    if search
+      User.where('area LIKE ?', "%#{search}%")
+    else
+      User.all
+    end
+  end
 
   enum area:{
     "---":0,
@@ -18,5 +26,13 @@ class User < ApplicationRecord
      徳島県:36,香川県:37,愛媛県:38,高知県:39,
      福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,
      沖縄県:47
+  }
+  enum histories: {
+    "登録なし":0,
+      １年:1,２年:2,３年:3,４年:4,５年:5,６年:6,７年:7,
+      ８年:8,９年:9,１０年:10,１１年:11,１２年:12,１３年:13,１４年:14,
+      １５年:15,１６年:16,１７年:17,１８年:18,１９年:19,２０年:20,
+      ２１年:21,２２年:22,２３年:23,２４年:24,
+      ２５年:25,２６年:26,２７年:27,２８年:28,２９年:29,３０年:30,
   }
 end

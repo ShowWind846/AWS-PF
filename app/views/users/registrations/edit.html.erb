@@ -30,14 +30,16 @@
             <%= f.label :email, "メールアドレス" %><br />
             <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
           </div>
-        </div>
-        <div class="field row">
           <div class="col-6">
             <%= f.label :company, "会社名" %><br />
             <%= f.text_field :company, class: "form-control" %>
           </div>
         </div>
         <div class="field row">
+          <div class="col-6">
+            <%= f.label :work_history, "社歴" %><br />
+            <%= f.select :work_history, options_for_select(User.histories), {}, class: "form-control" %>
+          </div>
           <div class="col-6">
             <%= f.label :area, "担当エリア" %><br />
             <%= f.select :area, User.areas.keys, {}, class: "form-control" %>
@@ -49,9 +51,9 @@
             <%= f.text_field :introduction, class: "form-control" %>
           </div>
         </div>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
         <div class="field row">
           <div class="col-12">
@@ -70,13 +72,13 @@
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "ご本人確認のためご入力ください。" %>
           </div>
         </div>
-      </div>
-      <div class="actions row">
-        <div class="col-6">
-          <%= f.submit "Update", class: "btn btn-outline-primary w-100" %>
-        </div>
-        <div class="col-6">
-          <%= link_to "Back", user_mypage_path, class: "btn btn-outline-success w-100" %>
+        <div class="actions row">
+          <div class="col-6">
+            <%= f.submit "Update", class: "btn btn-outline-primary w-100" %>
+          </div>
+          <div class="col-6">
+            <%= link_to "Back", user_mypage_path, class: "btn btn-outline-success w-100" %>
+          </div>
         </div>
       <% end %>
     </div>

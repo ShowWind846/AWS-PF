@@ -6,6 +6,8 @@
   background-color: #99CCFF;
   padding: 1px 5px;
 }
+
+// ユーザー一覧・検索ぺーじ
 .user-index-page {
   width: 800px;
   margin: 0 auto;
@@ -28,6 +30,16 @@
 .sales-index-name a {
   color: grey;
 }
+.index-search-table {
+  margin-bottom: 10px;
+}
+  .index-search-table td {
+    border: 0px none;
+  }
+  .key {
+    margin-left: 10px;
+  }
+
 /////ユーザー詳細ページ/////
 .user-show-page {
   width: 600px;

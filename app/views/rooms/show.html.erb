@@ -4,7 +4,7 @@
     <div class="talkroom-user">
       member : [
       <%= link_to user_path(@user.id) do %><%= @user.last_name + " " + @user.first_name %><% end %> /
-      <%= link_to corp_path(@corp.id) do %><%= @corp.name %><% end %> ]
+      <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
     </div>
     <div class="chat-paginate">
       <%= paginate @messages %>
@@ -25,20 +25,31 @@
         <% @messages.each do |message| %>
         <tr>
           <td>
-            <%= message.message %>
-            <div class="user-name">
               <% if message.corp_id.nil? %>
+                <% @m_sales = User.find(message.user_id) %>
+                <div class="sales-image">
+                  <%= attachment_image_tag @m_sales, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+                </div>
+                <div class="message-area">
+                  <%= message.message %>
+                </div>
                 <span class="sales-name">
                   <%= message.user.last_name + message.user.first_name %>
                   [<%= l message.created_at, format: :short %>]
                 </span>
               <% else %>
+                <% @m_docter = Corp.find(message.corp_id) %>
+                <div class="doctor-image">
+                  <%= attachment_image_tag @m_docter, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+                </div>
+                <div class="message-area">
+                  <%= message.message %>
+                </div>
                 <span class="doctor-name">
-                  <%= message.corp.name %>
+                  <%= message.corp.last_name + message.corp.first_name %>
                   [<%= l message.created_at, format: :short %>]
                 </span>
               <% end %>
-            </div>
           </td>
         </tr>
         <% end %>

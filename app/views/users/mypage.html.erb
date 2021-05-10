@@ -12,7 +12,18 @@
         <p>　<%= @user.introduction %>　</p>
       </div>
     </div>
-    <%= link_to "　メッセージを送信する　", root_path, class: "btn btn-outline-success rounded-pill" %>
+    <div class="row">
+      <div class="col-6">
+        <%= link_to root_path, class: "btn btn-outline-success disabled rounded-pill w-100" do %>
+          担当エリア：<%= @user.area %>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= link_to root_path, class: "btn btn-outline-primary disabled rounded-pill w-100" do %>
+          社歴：<%= @user.work_history %> 年
+        <% end %>
+      </div>
+    </div>
     <div class="first-day">
       <br>
       <i class="far fa-calendar-alt"> <%= l @user.created_at, format: :first %> からSUGGESTooLを利用しています</i>

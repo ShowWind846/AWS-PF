@@ -8,8 +8,26 @@
       <%= render "corps/shared/error_messages", resource: resource %>
       <div class="container">
         <div class="field">
-            <%= f.label :name, "医師名（もしくは医療機関名）" %>
-            <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "例）Suggestool.Inc" %>
+          <div class="row">
+            <div class="col-6">
+              <%= f.label :last_name, "姓" %>
+              <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "山田" %>
+            </div>
+            <div class="col-6">
+              <%= f.label :first_name, "名" %>
+              <%= f.text_field :first_name, class: "form-control", placeholder: "太郎" %>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+            <%= f.label :hospital, "医療機関名" %>
+            <%= f.text_field :hospital, class: "form-control", placeholder: "例）山田医院" %>
+        </div>
+        <div class="field row">
+          <div class="col-12">
+            <%= f.label :area, "医療機関所在地" %><br />
+            <%= f.select :area, Corp.areas.keys, {}, class: "form-control" %>
+          </div>
         </div>
         <div class="field">
           <%= f.label :email, "メールアドレス" %>
