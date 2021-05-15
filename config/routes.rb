@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   get 'favorites', to: 'corps#favos'
   get 'corp/about', to: 'corps#about'
   get 'corp/mypage', to: 'corps#mypage'
+  get 'corp/search', to: 'corps#search'
 
   devise_for :users, controllers: {
     sessions:       'users/sessions',
     passwords:      'users/passwords',
     registrations:  'users/registrations'
   }
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:show] do
     resource :relationships, only: [:create, :destroy]
   end
   get 'user/mypage', to: 'users#mypage'
@@ -25,10 +26,10 @@ Rails.application.routes.draw do
   root to: "homes#index"
   get 'about',to: 'homes#about'
   resources :suggests
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index, :destroy]
   delete 'delete', to: 'notifications#destroy_all'
   #resources :relationships, only: [:create, :destroy]
   post 'relationships/follow', to: 'relationships#follow'
-  resources :rooms, only: [:index,:show]
+  resources :rooms, only: [:show, :index]
   resources :messages, only: :create
 end

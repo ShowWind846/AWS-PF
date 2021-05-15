@@ -38,11 +38,6 @@
       background-color: #c33;
     }
   }
-  .header-include {
-    z-index: 30;
-    position: sticky;
-    top: 0;
-  }
   .title-logo {
     color: #000066;
     font-weight: bold;
@@ -53,48 +48,49 @@
       -1px 0 0 silver,
       0 -1px 0 silver
   }
-
-/////ヘッダー/////ピル部分/////
-  .user-image {
-    margin-right: 20px;
-  }
-  .pill-1 {
-    background-color: #000099;
-    color: white;
-    margin-right: 10px;
-  }
-  .pill-2 {
-  　background-color: #000099;
-    color: white;
+  .fa-check {
+    color: #c33;
   }
 
-/////セカンドヘッダー/////
-  .second-header {
-    color: white;
-    background-color: #6699FF;
+  //ヘッダー
+  .headers {
+    z-index: 30;
+    position: sticky;
+    top: 0;
   }
-  .second-navbar {
-    height: 56px;
-  }
-  .container-fluid {
-    height: 56px;
-  }
-  .login-message {
-    color: grey;
-    vertical-align: middle;
-  }
-  .login-message p {
-    font-size: 15px;
-    margin-top: 10px;
-  }
-  .login-user-image span {
-    font-size: 15px;
-    font-weight: bold;
-    display: inline-block;
-    margin: 7px 0 0 10px;
-  }
+    //ヘッダー　その１
+    .pill-style {
+      background-color: #000099;
+      color: white;
+    }
+
+    //ヘッダー　その２
+    .user-image {
+      margin-right: 20px;
+    }
+    .second-header {
+      color: white;
+      background-color: #6699FF;
+    }
+    .login-message {
+      color: grey;
+      vertical-align: middle;
+    }
+    .login-message p {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+    .login-user-image span {
+      font-size: 15px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 7px 0 0 10px;
+    }
+
+  //その他
   .page-title {
       color: white;
+      font-weight: bold;
       background-color: #6699FF;
       padding: 5px;
       display: inline-block;
@@ -108,39 +104,7 @@
     margin-bottom: 15px;
   }
 
-/////メインページ/////
-  .test-page {
-    height: 100vh;
-    background: image-url('topimage.jpg');
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  }
-  .main-page {
-    width: 600px;
-    margin: 0 auto;
-    padding-top: 50px;
-    text-align: center;
-  }
-  .main-message {
-    display: inline-block;
-    font-size: 26px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 5px 5px black;
-    margin-bottom: 30px;
-  }
-  .main-page p {
-    display: inline-block;
-    margin-top: 20px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 5px 5px black;
-  }
-  .top-btn {
-    margin-right: 20px;
-  }
-
-//セールス側新規登録ページ/////
+  //セールス側新規登録ページ/////
   .sign-up-page {
     width: 600px;
     margin: 0 auto;

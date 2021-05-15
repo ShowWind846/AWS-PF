@@ -1,0 +1,20 @@
+  <table class="notification-table table table-hover">
+    <tbody>
+      <% @notifications.each do |notification| %>
+      <% @doctor = Corp.find(notification.visitor_id) %>
+        <tr>
+          <td width="450px">
+            <% if notification.action == "message" %>
+              <%= link_to corp_path(@doctor.id) do %><%= @doctor.last_name + " " + @doctor.first_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+            <% else %>
+              <%= link_to corp_path(@doctor.id) do %><%= @doctor.last_name + " " + @doctor.first_name %><% end %> 様から<%= link_to notifications_path do %> フォロー <% end %>されました。
+            <% end %>
+          </td>
+          <td>
+            <%= link_to notification_path(notification.id), method: :delete do %><i class="fas fa-check">　</i><% end %>
+            <%= l notification.created_at, format: :short %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

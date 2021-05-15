@@ -5,53 +5,102 @@
   width: 600px;
   margin: 0 auto;
 }
-.message-form {
-  width: 460px;
-  height: 30px;
-}
-.submit-form {
-  width: 100px;
-  height: 30px;
-  margin-left: 20px;
-}
-.chat-page-title {
-  color: white;
-  background-color: #6699FF;
-  padding: 5px;
-  display: inline-block;
-  margin-bottom: 30px;
-  margin-right: 180px;
-  float: left;
- }
-.chat-paginate {
-  display: inline-block;
-  margin-top: 5px;
-  float: right;
-}
-.talkroom-user {
-  float: right;
-}
-  .talkroom-user a {
-    color: grey;
+  .chat-room-header {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 117px;
+    z-index: 20;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
   }
+    .chat-page-title {
+      color: white;
+      background-color: #6699FF;
+      padding: 5px;
+      display: inline-block;
+      margin-bottom: 30px;
+      margin-right: 180px;
+      float: left;
+     }
+    .talkroom-user {
+      float: right;
+      }
+      .talkroom-user a {
+        color: grey;
+        }
+    .chat-paginate {
+      display: inline-block;
+      margin-top: 5px;
+      float: right;
+    }
+    .message-form {
+      width: 460px;
+      height: 30px;
+    }
+    .submit-form {
+      width: 100px;
+      height: 30px;
+      margin-left: 20px;
+    }
+
 //チャット表示部分
 .message-table {
   margin-top: 10px;
 }
-  .sales-image, .doctor-image {
-    float: left;
+  .message-table td {
+    padding: 5px 3px;
   }
   .message-area {
-    float: left;
+    width: 100%;
   }
-  .sales-name, .doctor-name {
-    float: right;
+    .fukidashi {
+      display: inline-block;
+      padding: 5px 15px;
+      margin-left: 15px;
+      position: relative;
+      background-color: #D9F0FF;
+      border-radius: 10px;
+    }
+    .fukidashi:after {
+      content: "";
+      position: absolute;
+      top: 50%; left: -10px;
+      margin-top: -10px;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #D9F0FF transparent transparent;
+    }
+    .fukidashi2 {
+      display: inline-block;
+      padding: 5px 15px;
+      margin-left: 15px;
+      position: relative;
+      background-color: #fcc;
+      border-radius: 10px;
+    }
+    .fukidashi2:after {
+      content: "";
+      position: absolute;
+      top: 50%; left: -10px;
+      margin-top: -10px;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #fcc transparent transparent;
+    }
+  .messenger-name {
+    width: 100px;
   }
-  .sales-name {
-    background-color: #99CCFF;
-    padding: 1px 3px;
-  }
-  .doctor-name {
-    background-color: #FFCCCC;
-    padding: 1px 3px;
+    .messenger-name p {
+    font-size: 14px;
+    background-color: #DDD;
+    padding: 0px 3px;
+    margin-bottom: 0px;
+    display: inline-block;
   }

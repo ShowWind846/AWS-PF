@@ -16,7 +16,7 @@
             <% end %>
           </td>
           <td class="align-middle">
-            <%= link_to corp_path(@corp.id) do %><%= @corp.name %><% end %>
+            <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %>
           </td>
           <td class="align-middle">
             <%= link_to room_path(@room.id) do %> メッセージのやりとりをおこなう。 <% end %>

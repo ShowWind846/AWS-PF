@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_135214) do
+ActiveRecord::Schema.define(version: 2021_05_14_112945) do
 
   create_table "corps", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,8 +48,17 @@ ActiveRecord::Schema.define(version: 2021_05_02_135214) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "checked", default: false, null: false
+    t.integer "visited_corp_id"
+    t.integer "visitor_user_id"
+    t.string "action"
+    t.integer "message_id"
+    t.integer "room_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["room_id"], name: "index_notifications_on_room_id"
+    t.index ["visited_corp_id"], name: "index_notifications_on_visited_corp_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+    t.index ["visitor_user_id"], name: "index_notifications_on_visitor_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

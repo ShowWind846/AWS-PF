@@ -2,7 +2,7 @@ class Corp < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :timeoutable
   attachment :profile_image
   # association
   has_many :relationships, dependent: :destroy
@@ -23,14 +23,15 @@ class Corp < ApplicationRecord
      沖縄県:47
   }
 
-  # お気に入り解除ボタンのインスタンスメソッド
+  # フォロー解除メソッド
   def unfollow(user)
     @corp = Corp.find(current_corp.id)
     @favorite = Relationship.where(corp_id: @corp.id, user_id: user.id)
     @favorite.destroy
     redirect_back fallback_location: root_path, success: 'お気に入り登録解除しました'
   end
-  #通知機能！
+
+  # 新規フォロー通知メソッド
   def create_notification_follow!(current_corp, user)
     temp = Notification.where(["visitor_id = ? and visited_id = ?",current_corp.id, user.id])
     if temp.blank?
@@ -38,4 +39,5 @@ class Corp < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
 end

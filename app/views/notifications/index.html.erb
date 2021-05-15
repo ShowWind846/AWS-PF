@@ -4,21 +4,14 @@
     <div class="notification-index-contents">
       <% if @notifications.exists? %>
           <!--notificationモデルの中で書くから作用する、each文を書いているのと同じ-->
-          <%= render @notifications %>
           <%= paginate @notifications %>
-        <table class="table">
+      <%= render partial: "notification", locals: { notifications: @notifications} %>
+      <% else %>
+        <table class="table text-center">
           <tbody>
-            <% @notifications.each do |notification| %>
-              <tr>
-                <td>
-                  <%= Corp.find(notification.visitor_id).email %> からフォローされました。
-                </td>
-              </tr>
-            <% end %>
+            <td class="align-middle"><p>　現在、確認していない通知はございません。</p></td>
           </tbody>
         </table>
-      <% else %>
-        <p>通知はありません</p>
       <% end %>
     </div>
 </div>

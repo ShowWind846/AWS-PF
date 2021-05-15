@@ -7,6 +7,7 @@
   padding-top: 30px;
 }
 .notification-page-title {
+  font-weight: bold;
   color: white;
   background-color: #6699FF;
   padding: 5px;
@@ -19,4 +20,8 @@
 }
 .notification-index-contents {
   clear: left;
+}
+.notification-table a {
+  font-weight: bold;
+  color: #099;
 }

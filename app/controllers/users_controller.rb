@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, :except => [:about]
+
   def index
     #@users = User.page(params[:page]).per(10)
     #@search = User.ransack(params[:q])

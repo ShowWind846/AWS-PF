@@ -1,11 +1,11 @@
 
-<%= form_with url: users_path, method: :get, local: true do |f| %>
+<%= form_with url: corp_search_path, method: :get, local: true do |f| %>
   <table class="index-search-table">
     <tbody>
       <tr>
         <td width="620px"><%= f.select :search, options_for_select(User.areas), {}, class: "form-control" %></td>
         <td><%= f.submit "検索", class: "btn btn-outline-success key" %></td>
-        <td><%= link_to "リセット", users_path, class: "btn btn-outline-danger key" %></td>
+        <td><%= link_to "リセット", corp_search_path, class: "btn btn-outline-danger key" %></td>
       </tr>
     </tbody>
   </table>

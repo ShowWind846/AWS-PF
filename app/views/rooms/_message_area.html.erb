@@ -1,0 +1,40 @@
+<table class="message-table table-borderless table-hover m-0 align-middle">
+  <tbody>
+    <% messages.each do |message| %>
+      <% if message.corp_id.nil? %>
+        <% @messenger = User.find(message.user_id) %>
+      <% else %>
+        <% @messenger = Corp.find(message.corp_id) %>
+      <% end %>
+      <tr>
+        <!--ユーザープロフィール画像-->
+        <td width="40px">
+          <div class="messenger-image">
+            <%= attachment_image_tag @messenger, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+          </div>
+        </td>
+        <!--メッセージ本文-->
+        <td width="450px">
+          <div class="message-area">
+            <% if message.corp_id == nil %>
+              <div class="fukidashi">
+                <%= message.message %>
+              </div>
+            <% else %>
+              <div class="fukidashi2">
+                <%= message.message %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+        <!--削除ボタンと備考-->
+        <td width="110px">
+          <div class="messenger-name text-center">
+            <p><%= @messenger.last_name + @messenger.first_name %></p>
+            <p>[<%= l message.created_at, format: :short %>]</p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -92,22 +92,26 @@
 .follower-table {
   margin-top: 10px;
 }
-.follower-table td {
-  border-top: solid 1px #DDDDDD;
-  border-bottom: solid 1px #DDDDDD;
-}
+  .follower-table a {
+    font-weight: bold;
+    color: #099;
+  }
+  .follower-table td {
+    border-top: solid 1px #DDDDDD;
+    border-bottom: solid 1px #DDDDDD;
+  }
 //編集ページ
 .user-edit-page {
   width: 600px;
   margin: 0 auto;
 }
-.user-edit-page label {
-  font-size: 13px;
-  padding: 2px 4px;
-  color: white;
-  background-color: #75A9FF;
-}
-.user-edit-page i {
-  font-size: 13px;
-  color: grey;
-}
+  .user-edit-page label {
+    font-size: 13px;
+    padding: 2px 4px;
+    color: white;
+    background-color: #75A9FF;
+  }
+  .user-edit-page i {
+    font-size: 13px;
+    color: grey;
+  }
