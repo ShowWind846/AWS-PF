@@ -12,9 +12,7 @@
   </head>
   <body>
     <%= render "layouts/flash" %>
-
     <div class="headers">
-
       <div class="first-header">
         <!-- navbarの記述 -->
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000066;">
@@ -34,26 +32,19 @@
           </ul>
         </nav>
       </div>
-
       <div class="second-header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light second-navbar">
-
           <div class="container-fluid">
             <div class="login-message">
             <%= render "layouts/navbar_message" %>
           </div>
-
-          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse tab-content justify-content-end" id="navbarNavDropdown">
-          <!--セールス用メニュー-->
-
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse tab-content justify-content-end" id="navbarNavDropdown">
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="sales" role="tabpanel" aria-labelledby="sales-tab">
                 <!--上記の表示以下、ユーザーメニューの記述-->
-
                   <ul class="navbar-nav">
                     <!--ログイン時-->
                     <% if user_signed_in? %>
@@ -77,7 +68,7 @@
                         <% end %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
                           <i class="fas fa-sign-out-alt"> ログアウト</i>
                         <% end %>
                       </li>
@@ -98,7 +89,7 @@
                         <% end %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
                         <i class="fas fa-sign-out-alt"> ログアウト</i>
                         <% end %>
                       </li>
@@ -145,7 +136,7 @@
                           <% end %>
                         </li>
                       <li class="nav-item">
-                          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
                             <i class="fas fa-sign-out-alt"> ログアウト</i>
                           <% end %>
                         </li>
@@ -166,7 +157,7 @@
                         <% end %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしますか？"} do %>
+                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
                         <i class="fas fa-sign-out-alt"> ログアウト</i>
                         <% end %>
                       </li>

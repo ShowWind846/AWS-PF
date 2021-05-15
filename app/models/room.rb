@@ -21,4 +21,17 @@ class Room < ApplicationRecord
     @notification.save
   end
 
+  def user_create_notification_message!(current_user, message_id)
+    user_save_notification_message!(current_user, message_id, self.relationship.corp_id)
+  end
+
+  def user_save_notification_message!(current_user, message_id, visited_corp_id)
+    @notification = current_user.active_user_notifications.new(
+      room_id: id,
+      message_id: message_id,
+      visited_corp_id: visited_corp_id,
+      action: "message"
+      )
+    @notification.save
+  end
 end

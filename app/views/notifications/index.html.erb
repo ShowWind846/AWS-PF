@@ -3,9 +3,9 @@
   <%= link_to "　全削除　", delete_path, method: :delete, class: "btn btn-sm btn-danger destroy-btn" %>
     <div class="notification-index-contents">
       <% if @notifications.exists? %>
-          <!--notificationモデルの中で書くから作用する、each文を書いているのと同じ-->
-          <%= paginate @notifications %>
-      <%= render partial: "notification", locals: { notifications: @notifications} %>
+        <!--notificationモデルの中で書くから作用する、each文を書いているのと同じ-->
+        <%= paginate @notifications %>
+        <%= render partial: "notification", locals: { notifications: @notifications} %>
       <% else %>
         <table class="table text-center">
           <tbody>

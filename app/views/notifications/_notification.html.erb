@@ -1,13 +1,22 @@
   <table class="notification-table table table-hover">
     <tbody>
       <% @notifications.each do |notification| %>
-      <% @doctor = Corp.find(notification.visitor_id) %>
+      <% if user_signed_in? %>
+        <% @messenger = Corp.find(notification.visitor_id) %>
+      <% else %>
+        <% @messenger = User.find(notification.visitor_user_id) %>
+      <% end %>
+      <% @messenger_full_name = @messenger.last_name + " " + @messenger.first_name %>
         <tr>
           <td width="450px">
             <% if notification.action == "message" %>
-              <%= link_to corp_path(@doctor.id) do %><%= @doctor.last_name + " " + @doctor.first_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+              <% if user_signed_in? %>
+                <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+              <% else %>
+                <%= link_to user_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+              <% end %>
             <% else %>
-              <%= link_to corp_path(@doctor.id) do %><%= @doctor.last_name + " " + @doctor.first_name %><% end %> 様から<%= link_to notifications_path do %> フォロー <% end %>されました。
+              <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to notifications_path do %> フォロー <% end %>されました。
             <% end %>
           </td>
           <td>

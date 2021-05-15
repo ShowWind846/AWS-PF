@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#index"
-  get 'about',to: 'homes#about'
   resources :suggests
   resources :notifications, only: [:index, :destroy]
   delete 'delete', to: 'notifications#destroy_all'

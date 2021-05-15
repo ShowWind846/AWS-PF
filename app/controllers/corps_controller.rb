@@ -1,6 +1,6 @@
 class CorpsController < ApplicationController
 
-  before_action :authenticate_corp!, :except => [:about]
+  before_action :authenticate_corp!, :except => [:about, :show]
 
   def show
     @corp = Corp.find(params[:id])

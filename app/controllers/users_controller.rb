@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:about]
+  before_action :authenticate_user!, :except => [:about, :show]
 
   def index
     #@users = User.page(params[:page]).per(10)

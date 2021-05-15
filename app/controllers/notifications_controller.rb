@@ -1,6 +1,10 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.passive_notifications.page(params[:page]).per(10)
+    if user_signed_in?
+      @notifications = current_user.passive_notifications.page(params[:page]).per(10)
+    else
+      @notifications = current_corp.passive_corp_notifications.page(params[:page]).per(10)
+    end
     @notifications.where(checked: false).each do |notification|
       notification.update_attributes(checked: true)
     end

@@ -5,7 +5,11 @@ class MessagesController < ApplicationController
     @message.save
     @room = @message.room
       if @message.save
-        @room.create_notification_message!(current_corp, @message.id)
+        if @message.user_id == nil
+          @room.create_notification_message!(current_corp, @message.id)
+        else
+          @room.user_create_notification_message!(current_user, @message.id)
+        end
       else
         render room_path(@room.id)
       end
