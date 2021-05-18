@@ -1,0 +1,63 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.new-post-page {
+  width: 600px;
+  margin: 0 auto;
+}
+  .post-style p {
+    margin-top: 5px;
+    color: white;
+    background: #099;
+    font-weight: bold;
+    padding: 3px 0;
+    display: inline-block;
+    border-radius: 5px;
+  }
+  .post-form {
+    color: white;
+    background: #099;
+    font-weight: bold;
+    border: solid ;
+  }
+
+.post-show-page {
+  width: 600px;
+  margin: 0 auto;
+}
+  .post-style {
+    width: cover;
+    padding: 5px;
+    color: grey;
+    background: white;
+    border-top: solid 5px #099;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
+  .post-style-width {
+    width: 560px;
+    margin: 0 auto;
+  }
+  .clearfix:after{
+    clear: both;
+    display: block;
+  }
+  .post-title {
+    color: #099;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: solid 1px #099;
+  }
+    .post-edit {
+      float: right;
+      color: #099;
+    }
+  .post-info {
+    float: right;
+    color: #099;
+  }
+
+//編集ページ
+.post-edit-page {
+  width: 600px;
+  margin: 0 auto;
+}

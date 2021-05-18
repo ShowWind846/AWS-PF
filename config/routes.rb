@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/create'
+  get 'posts/edit'
+  get 'posts/update'
+  get 'posts/destroy'
   devise_for :corps, controllers: {
     sessions:       'corps/sessions',
     passwords:      'corps/passwords',
@@ -30,5 +35,6 @@ Rails.application.routes.draw do
   #resources :relationships, only: [:create, :destroy]
   post 'relationships/follow', to: 'relationships#follow'
   resources :rooms, only: [:show, :index]
-  resources :messages, only: :create
+  resources :messages, only: [:create]
+  resources :posts, only: [:new,:create,:show,:edit,:update,:destroy]
 end

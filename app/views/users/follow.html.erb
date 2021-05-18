@@ -1,9 +1,6 @@
 <main>
   <div class="follower-list">
-    <div class="menu-head">
-      <%= image_tag 'menu_head.gif', class: 'menu-head-img' %>
-      <p>　<%= @user.last_name + " " + @user.first_name %> さんをフォローしているドクター　</p>
-    </div>
+    <span class="page-title">　<%= @user.last_name + " " + @user.first_name %> さんをフォローしているドクター　</span>
     <table class="follower-table table table-hover table-sm">
       <tbody>
         <% @relationships.each do |relationship| %>

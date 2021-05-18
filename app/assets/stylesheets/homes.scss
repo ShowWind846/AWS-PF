@@ -44,9 +44,8 @@
     margin-left: 50px;
   }
 
-  @media screen and (max-width: 600px){
-    .top-btn::after {
-      content: "\A";
-      white-space: pre;
-    }
+@media screen and (max-width: 600px){
+  .main-page {
+    width: auto;
   }
+}

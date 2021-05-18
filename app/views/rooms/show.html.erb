@@ -1,17 +1,22 @@
-<div class="chat-room-page">
-  <div class="chat-room-header">
-    <span class="chat-page-title">　トークルーム　</span>
+<div class="talkroom-page">
+  <div class="talkroom-header">
+
+    <span class="talkroom-title">　トークルーム　</span>
     <div class="talkroom-user">
       member : [
       <%= link_to user_path(@user.id) do %><%= @user.last_name + " " + @user.first_name %><% end %> /
       <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
     </div>
-    <div class="chat-paginate">
-      <%= paginate @messages %>
-    </div>
     <%= render partial: "message_form", locals: { message: @message } %>
+
   </div>
+
   <div class="message_area">
     <%= render partial: "message_area", locals: { messages: @messages } %>
   </div>
+
+  <div class="message-paginate">
+    <%= paginate @messages %>
+  </div>
+
 </div>

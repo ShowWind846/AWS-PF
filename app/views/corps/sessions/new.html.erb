@@ -1,8 +1,7 @@
 <main>
-  <div class="corp-login-page">
-    <div class="menu-head">
-      <%= image_tag 'menu_head2.gif', class: 'menu-head-img' %>
-      <p>　ログイン ( Corps )</p>
+  <div class="session-page">
+    <div class="session-title mb-4">
+      <span class="align-middle">　<i class="fas fa-user-md"></i>　ログイン　( ドクター )</span>
     </div>
     <div class="container">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,7 +21,7 @@
           </div>
         <% end %>
         <div class="field row">
-          <%= f.submit "ログイン",class: "btn btn-lg btn-outline-primary w-100" %>
+          <%= f.submit "ログイン",class: "btn btn-lg btn-outline-info w-100" %>
         </div>
       <% end %>
       <br>

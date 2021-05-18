@@ -15,7 +15,7 @@
     <div class="headers">
       <div class="first-header">
         <!-- navbarの記述 -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000066;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #008080;">
           <%= link_to "SUGGESTooL", root_path, class: "title-logo" %>
           <!-- Navmenu pill部分  -->
           <ul class="nav nav-pills ml-auto" id="nav-tab" role="tablist">
@@ -78,6 +78,15 @@
                       <i class="fas fa-user"> マイページ</i>
                     <% end %>
                     </li>
+                      <li class="nav-item">
+                          <%= link_to notifications_path, class: "nav-link" do %>
+                            <% if corp_unchecked_notifications.any? %>
+                              <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
+                            <% else %>
+                              <i class="fas fa-circle"> 通知</i>
+                            <% end %>
+                          <% end %>
+                        </li>
                       <li class="nav-item">
                         <%= link_to corp_search_path, class: "nav-link" do %>
                           <i class="fas fa-users"> セールスを探す</i>
@@ -146,6 +155,15 @@
                         <i class="fas fa-user"> マイページ</i>
                       <% end %>
                       </li>
+                      <li class="nav-item">
+                          <%= link_to notifications_path, class: "nav-link" do %>
+                            <% if corp_unchecked_notifications.any? %>
+                              <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
+                            <% else %>
+                              <i class="fas fa-circle"> 通知</i>
+                            <% end %>
+                          <% end %>
+                        </li>
                       <li class="nav-item">
                         <%= link_to corp_search_path, class: "nav-link" do %>
                           <i class="fas fa-users"> セールスを探す</i>

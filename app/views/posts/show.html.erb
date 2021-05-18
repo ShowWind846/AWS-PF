@@ -1,0 +1,18 @@
+<main>
+  <div class="post-show-page">
+    <div class="post-style clearfix">
+      <div class="post-title">
+        <i class="fas fa-sticky-note mr-2"></i><%= @post.title %>
+        <%= link_to edit_post_path(@post.id), class: "post-edit" do %><i class="fas fa-cog"></i><% end %>
+      </div>
+      <div class="post-contents mt-1">
+        <%= @post.contents %>
+        <%= attachment_image_tag(@post, :post_image, :fill, 100, 100) %>
+      </div>
+      <div class="post-info">
+        [<%= @post.category %>]
+        [<%= l @post.created_at, format: :short %>]
+      </div>
+    </div>
+  </div>
+</main>

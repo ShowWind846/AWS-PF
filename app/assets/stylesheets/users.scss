@@ -1,11 +1,51 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sign-up-page label, .login-page label {
-  font-size: 14px;
-  background-color: #99CCFF;
-  padding: 1px 5px;
+
+// マイページ
+.count-follow {
+  margin-top: 10px;
 }
+  .count-follow a {
+    color: #099;
+  }
+.myposts {
+  width: 580px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.post-style {
+    padding: 5px;
+    color: grey;
+    background: white;
+    border-top: solid 5px #099;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
+  .post-article-width {
+    width: 540px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  .clearfix:after{
+    clear: both;
+    display: block;
+  }
+  .post-title {
+    color: #099;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: solid 1px #099;
+  }
+    .post-edit {
+      float: right;
+      color: #099;
+    }
+  .post-info {
+    float: right;
+    color: #099;
+    margin-bottom: 10px;
+  }
 
 // ユーザー一覧・検索ぺーじ
 .user-index-page {
@@ -45,6 +85,7 @@
   width: 600px;
   margin: 0 auto;
 }
+
 // アバウトページ
 .user-about-page {
   width: 600px;
@@ -84,6 +125,7 @@
   border-top: solid 1px #CCC;
   margin-bottom: 10px;
 }
+
 //ユーザー：フォロワー一覧
 .follower-list {
   width: 600px;
@@ -99,19 +141,4 @@
   .follower-table td {
     border-top: solid 1px #DDDDDD;
     border-bottom: solid 1px #DDDDDD;
-  }
-//編集ページ
-.user-edit-page {
-  width: 600px;
-  margin: 0 auto;
-}
-  .user-edit-page label {
-    font-size: 13px;
-    padding: 2px 4px;
-    color: white;
-    background-color: #75A9FF;
-  }
-  .user-edit-page i {
-    font-size: 13px;
-    color: grey;
   }

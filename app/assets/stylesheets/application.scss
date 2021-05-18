@@ -25,6 +25,7 @@
     box-sizing: border-box;
   }
   main {
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 50px;
   }
@@ -38,19 +39,36 @@
       background-color: #c33;
     }
   }
-  .title-logo {
-    color: #000066;
-    font-weight: bold;
-    font-size: 30px;
-    text-shadow:
-      1px 0 0 silver,
-      0 1px 0 silver,
-      -1px 0 0 silver,
-      0 -1px 0 silver
-  }
   .fa-check {
     color: #c33;
   }
+  .comment {
+    clear: both;
+  }
+    .balloon {
+      position: relative;
+      display: inline-block;
+      margin: 1.5em 0;
+      padding: 7px 10px;
+      min-width: 120px;
+      max-width: 100%;
+      color: #555;
+      font-size: 16px;
+      background: #CEF9DC;
+    }
+    .balloon:before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: 23%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-bottom: 15px solid #CEF9DC;
+    }
+    .balloon p {
+      margin: 0;
+      padding: 0;
+    }
 
   //ヘッダー
   .headers {
@@ -59,11 +77,22 @@
     top: 0;
   }
     //ヘッダー　その１
-    .pill-style {
-      background-color: #000099;
+    .first-header a {
       color: white;
     }
-
+    .title-logo {
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, .7);
+    }
+    .pill-style {
+      background-color: #099;
+      color: white;
+    }
+    .nav-item>.active {
+      background-color: #F96 !important;
+    }
     //ヘッダー　その２
     .user-image {
       margin-right: 20px;
@@ -89,12 +118,13 @@
 
   //その他
   .page-title {
-      color: white;
-      font-weight: bold;
-      background-color: #6699FF;
-      padding: 5px;
-      display: inline-block;
-      margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+    background-color: #099;
+    padding: 7px 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 5px;
   }
   .corp-page-title {
     color: white;
@@ -122,11 +152,40 @@
     margin-top: 20px;
   }
 
-//セールス側ログインページ/////
-  .login-page {
-    width: 600px;
+//セッション関連ページ
+  .session-page {
+    width: 580px;
     margin: 0 auto;
   }
+    .session-page a {
+      color: #099;
+    }
+    .session-title {
+      margin: 0 auto;
+      width: 540px;
+      font-weight: 20px;
+      line-height: 40px;
+      color: white;
+      font-weight: bold;
+      background-color: #099;
+      border-radius: 5px;
+    }
+    .confirm-password span {
+      font-size: 14px;
+      margin-left: 10px;
+      padding: 2px 5px 2px 5px;
+      color: white;
+      background-color: red;
+      border-radius: 15%;
+    }
+    .back-button a {
+      color: red;
+    }
+    .reset-password-introduce {
+      width: 480px;
+      margin: 0 auto;
+      color: grey;
+    }
 
 /////マイページ/////
   .mypage {
@@ -136,15 +195,13 @@
   .myinfo td {
     border: 1px solid black;
   }
+  .first-day {
+    color: grey;
+    font-size: 14px;
+  }
 
 /////アバウトページ/////
   .about-page {
     width: 800px;
-    margin: 0 auto;
-  }
-
-/////企業ログインページ/////
-  .corp-login-page, .corp-registration-page {
-    width: 600px;
     margin: 0 auto;
   }

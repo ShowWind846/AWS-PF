@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_112945) do
+ActiveRecord::Schema.define(version: 2021_05_16_131431) do
 
   create_table "corps", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 2021_05_14_112945) do
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
     t.index ["visitor_user_id"], name: "index_notifications_on_visitor_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "contents"
+    t.integer "category", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "post_image_id"
   end
 
   create_table "relationships", force: :cascade do |t|

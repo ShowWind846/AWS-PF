@@ -1,8 +1,7 @@
 <main>
-  <div class="sign-up-page">
-  <div class="menu-head">
-    <%= image_tag 'menu_head.gif', class: 'menu-head-img' %>
-    <p>　新規登録 ( Sales )</p>
+  <div class="session-page">
+  <div class="session-title mb-4">
+    <span class="align-middle">　 <i class="fas fa-user-tie"></i>　新規登録  （ セールス ）</span>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -47,9 +46,10 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "確認のため再度入力" %>
         </div>
       </div>
-      <div class="actions row">
-          <%= f.submit "新規登録",class: "btn btn-outline-success btn-lg w-100" %>
+      <div class="actions row mb-3">
+          <%= f.submit "新規登録",class: "btn btn-outline-info w-100" %>
       </div>
+      <%= render "users/shared/links" %>
     <% end %>
     </div>
   </div>

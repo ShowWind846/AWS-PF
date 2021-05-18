@@ -3,9 +3,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :except => [:about, :show]
 
   def index
-    #@users = User.page(params[:page]).per(10)
-    #@search = User.ransack(params[:q])
-    #@users = @search.result(distinct: true).page(params[:page]).per(20)
     @users = User.search(params[:search])
     @users = @users.page(params[:page]).per(10)
   end
@@ -16,6 +13,7 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
+    @posts = Post.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def follow

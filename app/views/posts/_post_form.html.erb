@@ -1,0 +1,9 @@
+<%= form_with model: post, url: posts_path, local: true do |f| %>
+  <%= f.hidden_field :user_id, :value => user.id %>
+  <%= f.text_field :title, class: "form-control mb-2", placeholder: "タイトル" %>
+  <%= f.text_area :contents, :size => "30x10", class: "form-control mb-3", placeholder: "記事の内容" %>
+  <%= f.attachment_field :post_image, class: "form-control-file mb-3" %>
+  <%= f.select :category, Post.categories.keys, {prompt: "記事のカテゴリを選択してください"}, class: "custom-select mb-3" %>
+  <br>
+  <%= f.submit "　投稿する　", class: "btn btn-info mb-2 ml-auto d-block" %>
+<% end %>

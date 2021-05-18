@@ -2,28 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //
-// エディットページ(CORP)
-.corp-login-page label, .corp-registration-page label {
-  font-size: 14px;
-  background-color: #FCC;
-  padding: 1px 5px;
-}
-.corp-edit-page {
-  width: 600px;
-  margin: 0 auto;
-}
-.confirm-password span {
-  font-size: 14px;
-  margin-left: 10px;
-  padding: 2px 5px 2px 5px;
-  color: white;
-  background-color: red;
-  border-radius: 15%;
-}
-.first-day {
-  color: grey;
-  font-size: 14px;
-}
 //
 .fav-index-page {
   width: 800px;
@@ -107,32 +85,4 @@
 .profile a {
   text-decoration: none;
   color: grey;
-}
-.comment {
-  clear: both;
-}
-.balloon {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 0;
-  padding: 7px 10px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #e0edff;
-}
-
-.balloon:before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: 23%;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-bottom: 15px solid #e0edff;
-}
-.balloon p {
-  margin: 0;
-  padding: 0;
 }

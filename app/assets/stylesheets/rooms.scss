@@ -1,11 +1,11 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.chat-room-page {
+.talkroom-page {
   width: 600px;
   margin: 0 auto;
 }
-  .chat-room-header {
+  .talkroom-header {
     padding-top: 20px;
     padding-bottom: 10px;
     position: sticky;
@@ -14,14 +14,16 @@
     background-color: white;
     border-bottom: 1px solid #ddd;
   }
-    .chat-page-title {
+    .talkroom-title {
       color: white;
-      background-color: #6699FF;
+      background-color: #099;
+      font-weight: bold;
       padding: 5px;
       display: inline-block;
       margin-bottom: 30px;
       margin-right: 180px;
       float: left;
+      border-radius: 5px;
      }
     .talkroom-user {
       float: right;
@@ -29,11 +31,28 @@
       .talkroom-user a {
         color: grey;
         }
-    .chat-paginate {
-      display: inline-block;
+    .message-paginate {
+      width: 600px;
+      height: 50px;
+      z-index: 2;
+      background-color: white;
       margin-top: 5px;
-      float: right;
+      padding-top: 5px;
+      border-top: 1px solid #ddd;
+      position: sticky;
+      bottom: 0;
     }
+      .pagination {
+        justify-content: center;
+      }
+      .pagination>li>a {
+        border: none;
+        color: #099;
+      }
+      .pagination>.active>.page-link {
+        background-color: #099 !important;
+        border-radius: 5px !important;
+      }
     .message-form {
       width: 460px;
       height: 30px;

@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   has_many :active_user_notifications, class_name: "Notification", foreign_key: "visitor_user_id", dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :relationships, dependent: :destroy
+  has_many :posts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,4 +38,5 @@ class User < ApplicationRecord
       ２１年:21,２２年:22,２３年:23,２４年:24,
       ２５年:25,２６年:26,２７年:27,２８年:28,２９年:29,３０年:30,
   }
+
 end

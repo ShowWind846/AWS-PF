@@ -1,17 +1,19 @@
 <div class="notification-index">
-  <span class="notification-page-title">　最新の通知　</span>
-  <%= link_to "　全削除　", delete_path, method: :delete, class: "btn btn-sm btn-danger destroy-btn" %>
-    <div class="notification-index-contents">
-      <% if @notifications.exists? %>
-        <!--notificationモデルの中で書くから作用する、each文を書いているのと同じ-->
-        <%= paginate @notifications %>
-        <%= render partial: "notification", locals: { notifications: @notifications} %>
-      <% else %>
-        <table class="table text-center">
-          <tbody>
-            <td class="align-middle"><p>　現在、確認していない通知はございません。</p></td>
-          </tbody>
-        </table>
-      <% end %>
-    </div>
+  <div class="notification-index-heade align-middle">
+    <span class="page-title">　最新の通知　</span>
+    <%= link_to "　全削除　", delete_path, method: :delete, class: "btn btn-outline-danger destroy-btn" %>
+  </div>
+  <div class="notification-index-contents">
+    <% if @notifications.exists? %>
+      <!--notificationモデルの中で書くから作用する、each文を書いているのと同じ-->
+      <%= paginate @notifications %>
+      <%= render partial: "notification", locals: { notifications: @notifications} %>
+    <% else %>
+      <table class="table text-center">
+        <tbody>
+          <td class="align-middle"><p>　現在、確認していない通知はございません。</p></td>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>
