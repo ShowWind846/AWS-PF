@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_131431) do
+ActiveRecord::Schema.define(version: 2021_05_19_073646) do
 
   create_table "corps", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_05_16_131431) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "introduction", default: "よろしくお願いします。"
+    t.string "introduction", default: "よろしくお願いします", null: false
     t.string "profile_image_id"
     t.string "hospital"
     t.string "last_name"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2021_05_16_131431) do
     t.string "last_name"
     t.string "first_name"
     t.string "profile_image_id"
-    t.text "introduction", default: "よろしくお願いします。"
+    t.string "introduction", default: "よろしくお願いします", null: false
     t.string "company"
     t.integer "area", default: 0, null: false
     t.integer "work_history", default: 0, null: false
