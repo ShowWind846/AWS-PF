@@ -1,17 +1,19 @@
 <div class="talkroom-page">
   <div class="talkroom-header">
 
+  <div class="TitleAndUser">
     <span class="talkroom-title">　トークルーム　</span>
     <div class="talkroom-user">
-      member : [
+      <p class="invisible-sp">member :</p> [
       <%= link_to user_path(@user.id) do %><%= @user.last_name + " " + @user.first_name %><% end %> /
       <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
     </div>
+  </div>
     <%= render partial: "message_form", locals: { message: @message } %>
 
   </div>
 
-  <div class="message_area">
+  <div class="message-area">
     <%= render partial: "message_area", locals: { messages: @messages } %>
   </div>
 

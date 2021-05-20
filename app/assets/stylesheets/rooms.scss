@@ -123,3 +123,37 @@
     margin-bottom: 0px;
     display: inline-block;
   }
+
+@media screen and (max-width: 600px) {
+  .talkroom-page {
+    width: auto;
+  }
+  .talkroom-header {
+    position: sticky;
+    top: 157px;
+  }
+  .message-paginate {
+    width: auto;
+  }
+  .talkroom-title {
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  .TitleAndUser {
+    height: 50px;
+    margin: 0 10px;
+  }
+  .message-form-area {
+    margin: 0 10px;
+  }
+  .message-form {
+    width: 220px;
+  }
+  .submit-form {
+    width: auto;
+    height: 30px;
+    margin-left: 0px;
+    float: right;
+  }
+
+}

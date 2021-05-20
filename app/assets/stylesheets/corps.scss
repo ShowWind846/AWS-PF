@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //
 //
-.fav-index-page {
+.follow-page {
   width: 800px;
   margin: 0 auto;
 }
-  .fav-index-table td, .fav-index-table th {
+  .follow-table td, .follow-table th {
   border-bottom: solid 1px #DDDDDD;
 }
 .profile-image {
@@ -85,4 +85,10 @@
 .profile a {
   text-decoration: none;
   color: grey;
+}
+
+@media screen and (max-width: 600px) {
+  .follow-page {
+    width: auto;
+  }
 }

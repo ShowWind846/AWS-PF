@@ -162,7 +162,7 @@
     }
     .session-title {
       margin: 0 auto;
-      width: 540px;
+      width: 580px;
       font-weight: 20px;
       line-height: 40px;
       color: white;
@@ -207,9 +207,15 @@
   }
 
 @media screen and (max-width: 600px) {
-  .title-logo, .ml-auto {
+  .invisible-sp {
+    display: none;
+  }
+  .title-logo {
     margin: 0 auto !important;
   }
+    .nav-pills.ml-auto {
+      margin: 0 auto !important;
+    }
   .session-page {
     width: auto;
   }
