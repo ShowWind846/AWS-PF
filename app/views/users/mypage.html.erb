@@ -1,37 +1,40 @@
 <main>
   <div class="profile">
-    <div class="name-and-image">
-      <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
-      <p><%= @user.last_name + " " + @user.first_name %>（ <%= @user.company %> ）</p>
-      <div class="setting-link">
-          <%= link_to new_post_path do %><i class="fas fa-edit"></i><% end %>
-          <%= link_to edit_user_registration_path do %><i class="fas fa-cog"></i><% end %>
+    <div class="profile-header">
+      <div class="name-and-image">
+        <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
+        <p><%= @user.last_name + " " + @user.first_name %>（ <%= @user.company %> ）</p>
+        <div class="setting-link">
+            <%= link_to new_post_path do %><i class="fas fa-edit"></i><% end %>
+            <%= link_to edit_user_registration_path do %><i class="fas fa-cog"></i><% end %>
+        </div>
       </div>
-    </div>
-    <div class="comment">
-      <div class="balloon">
-        <p>　<%= @user.introduction %>　</p>
+      <div class="comment">
+        <div class="balloon">
+          <p>　<%= @user.introduction %>　</p>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <%= link_to root_path, class: "btn btn-outline-info disabled rounded-pill w-100" do %>
-          担当エリア：<%= @user.area %>
-        <% end %>
+      <div class="row">
+        <div class="col-6">
+          <%= link_to root_path, class: "btn btn-outline-info disabled rounded-pill w-100" do %>
+            担当エリア：<%= @user.area %>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to root_path, class: "btn btn-outline-primary disabled rounded-pill w-100" do %>
+            社歴：<%= @user.work_history %> 年
+          <% end %>
+        </div>
       </div>
-      <div class="col-6">
-        <%= link_to root_path, class: "btn btn-outline-primary disabled rounded-pill w-100" do %>
-          社歴：<%= @user.work_history %> 年
-        <% end %>
+      <div class="first-day">
+        <br>
+        <i class="far fa-calendar-alt"> <%= l @user.created_at, format: :first %> からSUGGESTooLを利用しています</i>
       </div>
-    </div>
-    <div class="first-day">
-      <br>
-      <i class="far fa-calendar-alt"> <%= l @user.created_at, format: :first %> からSUGGESTooLを利用しています</i>
-    </div>
-    <div class="count-follow">
+      <div class="count-follow">
       <%= link_to user_followers_path do%><%= current_user.relationships.count %> フォロワー<% end %>
     </div>
+    </div>
+    <br class="br-sp">
     <div class="myposts">
       <%= render partial: "posts", locals: { posts: @posts } %>
     </div>

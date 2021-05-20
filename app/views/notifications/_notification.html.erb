@@ -11,12 +11,12 @@
           <td width="450px">
             <% if notification.action == "message" %>
               <% if user_signed_in? %>
-                <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+                <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<br class="br-sp"><%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
               <% else %>
-                <%= link_to user_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
+                <%= link_to user_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<br class="br-sp"><%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。
               <% end %>
             <% else %>
-              <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<%= link_to notifications_path do %> フォロー <% end %>されました。
+              <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<br class="br-sp"><%= link_to notifications_path do %> フォロー <% end %>されました。
             <% end %>
           </td>
           <td>

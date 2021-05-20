@@ -1,12 +1,12 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.notification-index {
+.notification-page {
   width: 600px;
   margin: 0 auto;
   padding-top: 30px;
 }
-.notification-index-header {
+.notification-header {
   height: 50px;
 }
 .destroy-btn {
@@ -18,4 +18,12 @@
 .notification-table a {
   font-weight: bold;
   color: #099;
+}
+
+@media screen and (max-width: 600px){
+ .notification-page {
+   width: auto;
+   padding: 0 10px;
+   margin-top: 10px;
+ }
 }

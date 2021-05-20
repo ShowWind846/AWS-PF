@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /////メインページ/////
-  .test-page {
+  .top-page {
     height: cover;
     background: image-url('topimage.jpg');
     background-size: 100% auto;
@@ -53,11 +53,5 @@
 @media screen and (max-width: 600px){
   .main-page {
     width: auto;
-  }
-}
-
-@media screen and (min-width: 600px){
-  .br-sp {
-    display: none;
   }
 }

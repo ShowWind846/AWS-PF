@@ -127,7 +127,7 @@
 }
 
 //ユーザー：フォロワー一覧
-.follower-list {
+.follower-page {
   width: 600px;
   margin: 0 auto;
 }
@@ -142,3 +142,10 @@
     border-top: solid 1px #DDDDDD;
     border-bottom: solid 1px #DDDDDD;
   }
+
+@media screen and (max-width: 600px) {
+  .follower-page {
+    width: auto;
+    padding: 0 10px;
+  }
+}
