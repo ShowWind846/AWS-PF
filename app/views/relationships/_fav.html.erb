@@ -1,6 +1,6 @@
 
 <% if Relationship.exists?(corp_id: current_corp.id, user_id: user.id) == true %>
-  <%= link_to "登録解除", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-danger w-100 rounded-pill" %>
+  <%= link_to "登録解除", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-danger w-100 rounded-pill", data: {confirm: "フォロー解除してよろしいですか？"} %>
 <% else %>
   <%= link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success w-100 rounded-pill" %>
 <% end %>

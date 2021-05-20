@@ -13,14 +13,6 @@
 .profile-image {
   border-radius: 50%;
 }
-.sales-index-name {
-  position: relative;
-}
-  .sales-index-name p {
-    position: absolute;
-    left: 65px;
-    top: 33%;
-  }
 
 // 企業側アバウトページ
 .corp-about-page {
@@ -87,7 +79,7 @@
   color: grey;
 }
 
-//セールス検索ぺーじ
+//セールス検索ページ
 .user-search-page {
   width: 800px;
   margin: 0 auto;
@@ -99,5 +91,29 @@
   }
   .user-search-page {
     width: auto;
+  }
+  .search-header {
+    margin: 0 10px;
+  }
+  .sales-index-table th {
+    width: auto;
+    font-size: 14px;
+  }
+  .sales-index-table td {
+    font-size: 14px;
+  }
+  .sales-area {
+    display: none;
+  }
+  .follow-table th, .follow-table td {
+    width: auto;
+    font-size: 14px;
+  }
+  .follow-table .btn {
+    margin: 0;
+    font-size: 14px;
+  }
+  .display-none {
+    display: none;
   }
 }
