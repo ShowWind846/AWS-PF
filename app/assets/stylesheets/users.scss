@@ -48,10 +48,6 @@
   }
 
 // ユーザー一覧・検索ぺーじ
-.user-index-page {
-  width: 800px;
-  margin: 0 auto;
-}
 .profile-image {
   border-radius: 50%;
 }
@@ -70,15 +66,6 @@
 .sales-index-name a {
   color: grey;
 }
-.index-search-table {
-  margin-bottom: 10px;
-}
-  .index-search-table td {
-    border: 0px none;
-  }
-  .key {
-    margin-left: 10px;
-  }
 
 /////ユーザー詳細ページ/////
 .user-show-page {
@@ -147,5 +134,11 @@
   .follower-page {
     width: auto;
     padding: 0 10px;
+  }
+  .user-search-page .btn {
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 12px;
+    text-align: center;
   }
 }
