@@ -1,5 +1,5 @@
 <div class="message-form-area">
-  <%= form_with model: message, url: messages_path, local: true do |f| %>
+  <%= form_with model: message, url: messages_path, remote: true do |f| %>
     <%= f.text_field :message, class: "message-form", placeholder: "ここにメッセージを入力してください" %>
     <!--hidden-->
     <%= f.hidden_field :room_id, value: params[:id] %>

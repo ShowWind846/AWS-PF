@@ -9,8 +9,9 @@
       <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
     </div>
   </div>
+  <div id="message_form">
     <%= render partial: "message_form", locals: { message: @message } %>
-
+  </div>
   </div>
 
   <div class="message-area">

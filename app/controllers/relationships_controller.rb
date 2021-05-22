@@ -1,24 +1,18 @@
 class RelationshipsController < ApplicationController
-  # お気に入り機能のアクション記述
-  def create
-    @user = User.find(params[:user_id])
-    @relationship = Relationship.create(user_id: @user.id, corp_id: current_corp.id)
-    Room.create(relationship_id: @relationship.id)
-    @corp = Corp.find(current_corp.id)
-    @corp.create_notification_follow!(current_corp, @user)
-    redirect_back fallback_location: root_path, success: 'お気に入りに登録しました。'
+
+  def index
+    @favorites = Relationship.where(corp_id: current_corp.id).order(created_at: :desc)
   end
 
-  # destroyを記述したいが理解ができない
+  def create
+    @user = User.find(params[:user_id])
+    current_corp.follow(params[:user_id])
+  end
+
   def destroy
     @user = User.find(params[:user_id])
     @favorite = Relationship.find_by(corp_id: current_corp.id, user_id: @user.id)
     @favorite.destroy
-    redirect_back fallback_location: root_path, success: 'お気に入りを解除しました。'
-  end
-  # お気に入り登録済み一覧表示機能を作成したい
-  def index
-    @favorites = Relationship.where(corp_id: current_corp.id).order(created_at: :desc)
   end
 
   def follow

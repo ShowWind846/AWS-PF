@@ -28,7 +28,9 @@
             <td class="align-middle sales-area"><%= user.area %></td>
             <td class="align-middle">
             <!--if文 exsists?でフォロー/解除の表示を切り替えする-->
-            <%= render 'relationships/fav', user: user %>
+            <div id="follow_button_<%= user.id %>">
+              <%= render partial: "relationships/follow", locals: {user: user} %>
+            </div>
             </td>
           </tr>
           <% end %>

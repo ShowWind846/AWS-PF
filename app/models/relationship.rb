@@ -5,4 +5,5 @@ class Relationship < ApplicationRecord
 
     validates :user_id, presence: true
     validates :corp_id, presence: true
+
 end

@@ -24,6 +24,11 @@ class Corp < ApplicationRecord
      沖縄県:47
   }
 
+  # フォローメソッドテスト
+  def follow(user_id)
+    relationships.create(user_id: user_id, corp_id: id)
+  end
+
   # フォロー解除メソッド
   def unfollow(user)
     @corp = Corp.find(current_corp.id)
