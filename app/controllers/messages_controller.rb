@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
 
   def create
+    if user_signed_in?
+      @messenger = current_user
+    elsif corp_signed_in?
+      @messenger = current_corp
+    end
     @message = Message.new(message_params)
     @message.save
     @room = @message.room
@@ -13,7 +18,11 @@ class MessagesController < ApplicationController
       else
         render room_path(@room.id)
       end
-    redirect_back fallback_location: root_path
+  end
+
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
   end
 
   private

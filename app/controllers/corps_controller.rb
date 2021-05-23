@@ -10,8 +10,9 @@ class CorpsController < ApplicationController
     @corp = current_corp
   end
 
-  def favos
+  def follows
     @relationships = Relationship.where(corp_id: current_corp.id).order(created_at: :desc)
+    #binding.pry
   end
 
   def search

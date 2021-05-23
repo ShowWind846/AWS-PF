@@ -1,6 +1,6 @@
 <main>
   <div class="follower-page">
-    <span class="page-title">　<%= @user.last_name + " " + @user.first_name %> さんをフォローしているドクター　</span>
+    <span class="page-title">　<%= @user.last_name + " " + @user.first_name %> さんのフォロワー一覧　</span>
     <table class="follower-table table table-hover table-sm">
       <tbody>
         <% @relationships.each do |relationship| %>

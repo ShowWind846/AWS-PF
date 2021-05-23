@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   get 'posts/edit'
   get 'posts/update'
   get 'posts/destroy'
+
   devise_for :corps, controllers: {
     sessions:       'corps/sessions',
     passwords:      'corps/passwords',
     registrations:  'corps/registrations'
   }
   resources :corps, only: [:show]
-  get 'favorites', to: 'corps#favos'
+  get 'follows', to: 'corps#follows'
   get 'corp/about', to: 'corps#about'
   get 'corp/mypage', to: 'corps#mypage'
   get 'corp/search', to: 'corps#search'
@@ -35,6 +36,6 @@ Rails.application.routes.draw do
   #resources :relationships, only: [:create, :destroy]
   post 'relationships/follow', to: 'relationships#follow'
   resources :rooms, only: [:show, :index]
-  resources :messages, only: [:create]
+  resources :messages, only: [:create, :destroy]
   resources :posts, only: [:new,:create,:show,:edit,:update,:destroy]
 end

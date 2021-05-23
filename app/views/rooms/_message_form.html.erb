@@ -1,4 +1,4 @@
-<div class="message-form-area">
+<div class="message-form-area" id="message_form">
   <%= form_with model: message, url: messages_path, remote: true do |f| %>
     <%= f.text_field :message, class: "message-form", placeholder: "ここにメッセージを入力してください" %>
     <!--hidden-->

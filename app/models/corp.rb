@@ -26,7 +26,8 @@ class Corp < ApplicationRecord
 
   # フォローメソッドテスト
   def follow(user_id)
-    relationships.create(user_id: user_id, corp_id: id)
+    @relationship = relationships.create(user_id: user_id, corp_id: id)
+    Room.create(relationship_id: @relationship.id)
   end
 
   # フォロー解除メソッド
