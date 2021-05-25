@@ -69,6 +69,21 @@
       margin: 0;
       padding: 0;
     }
+  #error_explanation {
+    color: #c33;
+    margin: 0 auto;
+    width: 550px;
+  }
+  #error_explanation h2 {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: double;
+    display: inline-block;
+  }
+  #error_explanation ul {
+    list-style: inside;
+    list-style-type: decimal;
+  }
 
   //ヘッダー
   .headers {

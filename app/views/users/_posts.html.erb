@@ -12,7 +12,7 @@
         <%= post.contents %><br>
       </div>
       <div class="post-image mt-1">
-        <%= attachment_image_tag(post, :post_image, :fill, 100, 100) %>
+        <%= attachment_image_tag(post, :post_image, class: "post-image") %>
       </div>
       <div class="post-info">
         [<%= post.category %>]

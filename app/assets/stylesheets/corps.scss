@@ -16,25 +16,10 @@
 
 // 企業側アバウトページ
 .corp-about-page {
-  width: 600px;
+  width: 580px;
   margin: 0 auto;
   padding-top: 20px;
 }
-.menu-head {
-  position: relative;
-}
-  .menu-head p {
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 0;
-  }
-  .menu-head-img {
-    width: 600px;
-    height: 50px;
-  }
 .submenu-head {
   position: relative;
 }
@@ -47,7 +32,7 @@
     left: 5px;
   }
   .submenu-head-img {
-    width: 600px;
+    width: 580px;
     height: 40px;
     border-bottom: solid 1px #CCC;
     border-top: solid 1px #CCC;

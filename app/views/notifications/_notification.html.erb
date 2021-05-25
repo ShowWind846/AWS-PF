@@ -8,7 +8,7 @@
       <% end %>
       <% @messenger_full_name = @messenger.last_name + " " + @messenger.first_name %>
         <tr>
-          <td width="450px">
+          <td width="440px">
             <% if notification.action == "message" %>
               <% if user_signed_in? %>
                 <%= link_to corp_path(@messenger.id) do %><%= @messenger_full_name %><% end %> 様から<br class="br-sp"><%= link_to room_path(notification.room_id) do %> 新しいメッセージ <% end %>が届いています。

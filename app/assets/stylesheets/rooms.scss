@@ -5,6 +5,9 @@
   width: 600px;
   margin: 0 auto;
 }
+  .talkroom-page a {
+    color: grey;
+  }
   .talkroom-header {
     padding-top: 20px;
     padding-bottom: 10px;
@@ -28,9 +31,6 @@
     .talkroom-user {
       float: right;
       }
-      .talkroom-user a {
-        color: grey;
-        }
     .message-paginate {
       width: 600px;
       height: 50px;
@@ -144,7 +144,7 @@
     margin: 0 10px;
   }
   .message-form-area {
-    margin: 0 10px;
+    margin: 0 auto;
   }
   .message-form {
     width: 220px;
@@ -155,5 +155,4 @@
     margin-left: 0px;
     float: right;
   }
-
 }

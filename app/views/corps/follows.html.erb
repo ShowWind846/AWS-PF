@@ -3,8 +3,8 @@
     <span class="corp-page-title">　フォローしているセールス一覧　</span>
     <table class="table table-hover follow-table">
       <thead bgcolor="#EEE">
-        <th>名前</th>
-        <th width="200px">会社名</th>
+        <th width="140px">名前</th>
+        <th >会社名</th>
         <th width="110px"><p class="display-none">担当エリア</p></th>
         <th width="180px"><p class="display-none">メッセージ</p></th>
         <th width="120px"></th>
@@ -22,9 +22,9 @@
           </td>
           <td class="align-middle"><%= @user.company %></td>
           <td class="align-middle" class="sales-area"><%= @user.area %></td>
-          <td><%= link_to " メッセージを送る ", room_path(@room.id), class: "btn btn-outline-primary" %> </td>
-          <td>
-            <div id="follow_button">
+          <td class="align-middle"><%= link_to " メッセージを送る ", room_path(@room.id), class: "btn btn-outline-primary" %> </td>
+          <td class="align-middle">
+            <div id="follow_button_<%= @user.id %>">
               <%= render partial: 'relationships/follow', locals: {user: @user} %>
             </div>
           </td>

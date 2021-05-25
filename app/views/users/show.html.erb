@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <%= render 'relationships/fav', user: @user %>
+        <%= render 'relationships/follow', user: @user %>
       </div>
       <div class="col-6">
         <%= link_to "　前の画面に戻る　", :back, class: "btn btn-outline-primary rounded-pill w-100" %>
@@ -20,6 +20,9 @@
     <div class="first-day">
       <br>
       <i class="far fa-calendar-alt"> <%= l @user.created_at, format: :first %> からSUGGESTooLを利用しています</i>
+    </div>
+    <div class="myposts">
+      <%= render partial: "posts", locals: { posts: @posts } %>
     </div>
   </div>
 </main>
