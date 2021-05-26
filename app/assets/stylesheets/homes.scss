@@ -22,8 +22,10 @@ html, body {
 }
 .main-page {
   width: 70%;
+  height: 350px;
   margin: 0 auto;
   padding-bottom: 50px;
+  border-bottom: solid 2px white;
 }
   .main-message {
     display: inline-block;
@@ -38,7 +40,7 @@ html, body {
   }
   .site-title {
     font-size: 3.7rem;
-    margin-top: -15px;
+    margin-top: -5px;
     color: #34675C;
     text-shadow:
       white 2px 2px 3px,
@@ -67,20 +69,62 @@ html, body {
     margin-left: 50px;
   }
   .type-message {
-    width: 400px;
+    width: 420px;
+    line-height: 35px;
+    text-shadow:
+      #333 1px 1px 1px,
+      #333 -1px 1px 1px,
+      #333 1px -1px 1px,
+      #333 -1px -1px 1px;
+  }
+  .login-link {
+    text-align: center;
+  }
+  .login-link p {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 2px solid white;
+    margin-top: 0px !important;
+    padding-bottom: 5px;
+  }
+  .doctor-menu {
+    margin-bottom: 10px;
   }
 
-
 @media screen and (max-width: 600px){
+  .top-page {
+    align-items: start;
+    padding-top: 10px;
+  }
   .main-page {
     height: calc(100% - 187px);
     width: auto;
     position: sticky;
     top: 187px;
+    border-bottom: none;
+  }
+  .col-xs-7 {
+    width: 90%;
+    height: 250px;
+    margin: 0 auto;
+  }
+  .col-xs-5 {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .site-title, .type-message {
+    width: 100%;
+    padding: 10px 0;
   }
   .site-title {
     font-size: 40px;
     margin-top: 0px;
+    padding: 0px;
+  }
+  .type-message {
+    font-size: 13px !important;
+    letter-spacing: 1px;
+    line-height: 20px;
   }
 }
 
