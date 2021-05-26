@@ -215,8 +215,8 @@
     font-size: 14px;
   }
 
-/////アバウトページ/////
-  .about-page {
+//アバウトページ
+.about-page {
     width: 800px;
     margin: 0 auto;
   }
@@ -238,9 +238,6 @@
     width: auto;
     margin: 0 10px;
   }
-  .btn {
-    margin: 0 10px;
-  }
   .profile {
     width: auto;
   }
@@ -257,4 +254,37 @@
   .br-sp {
     display: none;
   }
+}
+
+//iTyped
+.ityped-cursor {
+ font-size: 1em;
+ opacity: 1;
+ -webkit-animation: blink 0.3s infinite;
+ -moz-animation: blink 0.3s infinite;
+ animation: blink 0.3s infinite;
+ animation-direction: alternate;
+ color: #fff;
+}
+@keyframes blink {
+ 100% {
+     opacity: 0;
+ }
+}
+@-webkit-keyframes blink {
+ 100% {
+     opacity: 0;
+ }
+}
+@-moz-keyframes blink {
+ 100% {
+     opacity: 0;
+ }
+}
+.type-text{
+ color: #fff;
+ font-size: 20px;
+}
+.type-message {
+  margin-left: -20px;
 }
