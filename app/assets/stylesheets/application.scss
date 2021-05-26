@@ -259,7 +259,7 @@
 //外部フォント
 @font-face {
   font-family: "NotoSans";
-  src: asset-url('/fonts/NotoSansJP-Black.otf') format('opentype');
+  src:url('/fonts/NotoSansJP-Black.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
