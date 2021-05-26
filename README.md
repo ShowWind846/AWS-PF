@@ -7,6 +7,8 @@ SUGGESTooL ( サジェスツール )
 
 ## デモ画面
 
+<img src="https://user-images.githubusercontent.com/77390191/119533316-adab7e80-bdc0-11eb-9fcb-3571add607fc.png" width="300px">
+
 "hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
 
 ## 概要・制作背景
