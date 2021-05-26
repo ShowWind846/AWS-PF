@@ -256,6 +256,14 @@
   }
 }
 
+//外部フォント
+@font-face {
+  font-family: "NotoSans";
+  src: asset-url('/fonts/NotoSansJP-Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //iTyped
 .ityped-cursor {
  font-size: 1em;
