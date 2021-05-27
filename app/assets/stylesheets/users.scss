@@ -74,35 +74,11 @@
 }
 
 // アバウトページ
-.user-about-page {
-  width: 580px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  padding-top: 20px;
-  color: grey;
-}
   .user-about-page a {
     font-weight: bold;
     color: #099;
   }
-  .submenu-head {
-    position: relative;
-  }
-  .submenu-head p {
-    font-weight: bold;
-    font-size: 18px;
-    color: grey;
-    position: absolute;
-    top: 6px;
-    left: 5px;
-  }
-  .submenu-head-img {
-    width: 580px;
-    height: 40px;
-    border-bottom: solid 1px #CCC;
-    border-top: solid 1px #CCC;
-    margin-bottom: 10px;
-  }
+  
 
 //ユーザー：フォロワー一覧
 .follower-page {
