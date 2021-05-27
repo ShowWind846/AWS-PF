@@ -48,13 +48,15 @@ SUGGESTooL ( サジェスツール )
 ## 使用技術
 
 <dl>
-  <dt><u>* 使用技術</u>
+  <dt>* 使用技術
+  ***
   <dd>* Rails 5.2.5</dd>
   <dd>* Ruby 2.6.3</dd>
   <dd>* Bootstrap v4.5</dd>
   <dd>* JavaScript</dd>
   <dd>* MySQL v5.7.22
-  <dt><u>* インフラ</u></dt>
+  <dt>* インフラ</dt>
+  ***
   <dd>* EC2</dd>
   <dd>* RDS</dd>
   <dd>* EBS</dd>
