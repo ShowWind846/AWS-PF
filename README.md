@@ -7,7 +7,8 @@ SUGGESTooL ( サジェスツール )
 
 ## デモ画面
 
-<img src="https://user-images.githubusercontent.com/77390191/119762998-b64ba400-bee9-11eb-858e-f2c0d154345e.png" width="500px">
+<img src="https://user-images.githubusercontent.com/77390191/119764279-117e9600-beec-11eb-9317-41cb27dbb6f3.png" width="500px">
+<img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="300px">
 <img src="https://user-images.githubusercontent.com/77390191/119533316-adab7e80-bdc0-11eb-9fcb-3571add607fc.png" width="300px">
 
 "hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
@@ -65,12 +66,8 @@ pip install huga_package
 
 ## 機能一覧
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+<img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="500px">
 ```
 
 ## テスト
