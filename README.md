@@ -7,11 +7,11 @@ SUGGESTooL ( サジェスツール )
 
 ## 参考画面
 
-<b>▼ トップページ(PC画面)</b><BR>
+**▼ トップページ(PC画面)**<BR>
 <img src="https://user-images.githubusercontent.com/77390191/119764279-117e9600-beec-11eb-9317-41cb27dbb6f3.png" width="500px"><BR><BR>
-<b>▼ トップページ(SP画面)</b><BR>
+**▼ トップページ(SP画面)**<BR>
 <img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="300px" height="500px"><BR><BR>
-<b>▼ マイページ(SP画面)</b><BR>
+**▼ マイページ(SP画面)**<BR>
 <img src="https://user-images.githubusercontent.com/77390191/119533316-adab7e80-bdc0-11eb-9fcb-3571add607fc.png" width="300px"><BR>
 
 ## 概要・制作背景
@@ -48,13 +48,13 @@ SUGGESTooL ( サジェスツール )
 ## 使用技術
 
 <dl>
-  <dt>## 使用技術   
+  <dt>使用技術   
   <dd>* Rails 5.2.5</dd>
   <dd>* Ruby 2.6.3</dd>
   <dd>* Bootstrap v4.5</dd>
   <dd>* JavaScript</dd>
   <dd>* MySQL v5.7.22
-  <dt>## インフラ</dt>
+  <dt>インフラ</dt>
   <dd>* EC2</dd>
   <dd>* RDS</dd>
   <dd>* EBS</dd>
