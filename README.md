@@ -55,7 +55,7 @@ SUGGESTooL ( サジェスツール )
   <dd>* JavaScript</dd>
   <dd>* MySQL v5.7.22
 
-    ＊＊＊
+    ***
     
   <dt>* インフラ</dt>
   <dd>* EC2</dd>
