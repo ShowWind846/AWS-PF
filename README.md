@@ -47,12 +47,12 @@ SUGGESTooL ( サジェスツール )
 
 ## 使用技術
 
-1.使用技術   
-  -Rails 5.2.5
-  -Ruby 2.6.3
-  -Bootstrap v4.5
-  -JavaScript
-  -MySQL v5.7.22
+- 使用技術   
+  - Rails 5.2.5
+  - Ruby 2.6.3
+  - Bootstrap v4.5
+  - JavaScript
+  - MySQL v5.7.22
 2.インフラ
 -EC2
 -RDS
