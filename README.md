@@ -5,13 +5,11 @@ SUGGESTooL ( サジェスツール )
 
 * 医療業界における医師と医療情報担当者の簡易連絡が可能なサイト。
 
-## デモ画面
+## 参考画面
 
 <img src="https://user-images.githubusercontent.com/77390191/119764279-117e9600-beec-11eb-9317-41cb27dbb6f3.png" width="500px">
-<img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="300px">
+<img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="300px" height="500px">
 <img src="https://user-images.githubusercontent.com/77390191/119533316-adab7e80-bdc0-11eb-9fcb-3571add607fc.png" width="300px">
-
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
 
 ## 概要・制作背景
 
@@ -50,11 +48,9 @@ SUGGESTooL ( サジェスツール )
 
 ## 使用技術
 
-
 * Rails 5.2.5
 * Ruby 2.6.3
 * Bootstrap v4.5
-
 
 ## Installation
 
@@ -66,9 +62,7 @@ pip install huga_package
 
 ## 機能一覧
 
-```bash
 <img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="500px">
-```
 
 ## テスト
 
