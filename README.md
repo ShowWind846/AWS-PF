@@ -53,6 +53,7 @@ SUGGESTooL ( サジェスツール )
   - Bootstrap v4.5
   - JavaScript
   - MySQL v5.7.22
+  - HTML / CSS
   <br>
 - インフラ
   - EC2
