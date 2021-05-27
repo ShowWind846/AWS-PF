@@ -62,7 +62,7 @@ pip install huga_package
 
 ## 機能一覧
 
-<img src="https://user-images.githubusercontent.com/77390191/119764292-16dbe080-beec-11eb-8249-4cba9bc08af2.png" width="500px">
+<img src="https://user-images.githubusercontent.com/77390191/119764297-18a5a400-beec-11eb-9805-cf584f82058e.png" width="500px">
 
 ## テスト
 
