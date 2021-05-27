@@ -50,6 +50,7 @@ SUGGESTooL ( サジェスツール )
 * Rails 5.2.5
 * Ruby 2.6.3
 * Bootstrap v4.5
+* JavaScript
 
 
 ## 機能一覧
