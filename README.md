@@ -65,7 +65,7 @@ SUGGESTooL ( サジェスツール )
 
 ## 機能一覧
 
-<img src="https://user-images.githubusercontent.com/77390191/119764297-18a5a400-beec-11eb-9805-cf584f82058e.png" width="500px">
+<img src="https://user-images.githubusercontent.com/77390191/119801843-02620d00-bf19-11eb-9dbc-815d6ea05f81.png" width="500px">
 
 
 ## 作成者
