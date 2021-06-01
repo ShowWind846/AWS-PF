@@ -1,5 +1,4 @@
 class RelationshipsController < ApplicationController
-
   def index
     @favorites = Relationship.where(corp_id: current_corp.id).order(created_at: :desc)
   end
@@ -7,7 +6,6 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     current_corp.follow(params[:user_id])
-    
   end
 
   def destroy
@@ -24,7 +22,6 @@ class RelationshipsController < ApplicationController
   private
 
   def follow_params
-    params.permit(:user_id,:corp_id)
+    params.permit(:user_id, :corp_id)
   end
-
 end

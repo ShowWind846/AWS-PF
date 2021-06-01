@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!, :except => [:about, :show]
 
   def index
@@ -21,5 +20,4 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @relationships = Relationship.where(user_id: current_user.id).order(created_at: :desc)
   end
-
 end
