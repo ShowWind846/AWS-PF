@@ -4,11 +4,15 @@ ja:
       models:
         user:
           attributes:
+            first_name:
+              blank: "：入力必須項目です。"
+            last_name:
+              blank: "：入力必須項目です。"
             email:
-              blank: "：入力してください。"
+              blank: "：入力必須項目です。"
               taken: "：既に使用されています。"
             password:
-              blank: "：入力してください。"
+              blank: "：入力必須項目です。"
               too_short: "：%{count}文字以上で入力してください。"
               too_long: "：%{count}文字以下で入力してください。"
             password_confirmation:
@@ -16,16 +20,18 @@ ja:
         corp:
           attributes:
             email:
-              blank: "：入力してください。"
+              blank: "：入力必須項目です。"
               taken: "：既に使用されています。"
             password:
-              blank: "：入力してください。"
+              blank: "：入力必須項目です。"
               too_short: "：%{count}文字以上で入力してください。"
               too_long: "：%{count}文字以下で入力してください。"
             password_confirmation:
               confirmation: "：一致しません。"
     attributes:
       user:
+        first_name: 名
+        last_name: 姓
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -33,7 +39,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -50,6 +56,8 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       corp:
+        first_name: 名
+        last_name: 姓
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -57,7 +65,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -187,5 +195,5 @@ ja:
       not_found: は見つかりませんでした。
       not_locked: はロックされていません。
       not_saved:
-        one: エラーが発生したため アカウント の登録ができませんでした。
+        one: エラーが発生したためアカウントの登録ができませんでした。
         other: "%{count} 件のエラーが発生したためアカウント登録は完了しませんでした。"

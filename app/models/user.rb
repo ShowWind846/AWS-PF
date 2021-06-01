@@ -4,10 +4,16 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :relationships, dependent: :destroy
   has_many :posts, dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable
+
   attachment :profile_image
 
   def self.search(search)

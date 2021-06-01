@@ -70,19 +70,24 @@
       padding: 0;
     }
   #error_explanation {
+    font-size: 15px;
     color: #c33;
+    background-color: #EEE;
+    padding: 10px;
+    border-radius: 5px;
     margin: 0 auto;
-    width: 550px;
+    width: 90%;
+  }
+  #error_explanation ul {
+    margin-bottom: 0px !important;
+    list-style: inside;
+    list-style-type: decimal;
   }
   #error_explanation h2 {
     font-size: 16px;
     font-weight: bold;
     border-bottom: double;
     display: inline-block;
-  }
-  #error_explanation ul {
-    list-style: inside;
-    list-style-type: decimal;
   }
 
   //ヘッダー
