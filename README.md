@@ -47,25 +47,30 @@ SUGGESTooL ( サジェスツール )
 
 ## 使用技術
 
-- 使用技術   
+- 使用技術
   - Rails 5.2.5
   - Ruby 2.6.3
   - Bootstrap v4.5
   - JavaScript
   - MySQL v5.7.22
   - HTML / CSS
+- 主な使用gem
+  - devise
+  - refile
+  - kaminari
+  - Rubocop
   <br>
 - インフラ
   - EC2
   - RDS
   - EBS
 
-  
+
 
 
 ## 機能一覧
 
-* https://docs.google.com/spreadsheets/d/1I1GUPlFuZuEDN0kAAxx_eYYPmpObbAZcoTeuViDYr-0/edit#gid=0  
+* https://docs.google.com/spreadsheets/d/1I1GUPlFuZuEDN0kAAxx_eYYPmpObbAZcoTeuViDYr-0/edit#gid=0
 <img src="https://user-images.githubusercontent.com/77390191/119801843-02620d00-bf19-11eb-9dbc-815d6ea05f81.png" width="500px">
 
 
