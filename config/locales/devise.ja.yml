@@ -19,6 +19,10 @@ ja:
               confirmation: "：一致しません。"
         corp:
           attributes:
+            first_name:
+              blank: "：入力必須項目です。"
+            last_name:
+              blank: "：入力必須項目です。"
             email:
               blank: "：入力必須項目です。"
               taken: "：既に使用されています。"

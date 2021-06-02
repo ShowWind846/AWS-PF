@@ -5,16 +5,47 @@ RSpec.describe User, "モデルに関するテスト", type: :model do
     it "有効な登録内容の場合は保存されるか" do
       expect(FactoryBot.build(:user)).to be_valid
     end
-  end
-  context "空白のバリデーションチェック" do
-    it "Eメールに関して" do
-      user = User.new(
-        first_name: "太郎",
-        last_name: "田中",
-        email: "",
-        password: "test0689",
-        )
-      expect(user.errors[:email]).to include("can't be blank")
+    context "空白のバリデーションチェック" do
+      it "メールアドレス" do
+        user = User.new(
+          first_name: "太郎",
+          last_name: "田中",
+          email: "",
+          password: "test0689",
+          )
+        expect(user).to be_invalid
+        expect(user.errors[:email].join).to include("入力必須")
+      end
+      it "姓" do
+        user = User.new(
+          first_name: "太郎",
+          last_name: "",
+          email: "test@test.com",
+          password: "test0689",
+          )
+        expect(user).to be_invalid
+        expect(user.errors[:last_name].join).to include("入力必須")
+      end
+      it "名" do
+        user = User.new(
+          first_name: "",
+          last_name: "田中",
+          email: "test@test.com",
+          password: "test0689",
+          )
+        expect(user).to be_invalid
+        expect(user.errors[:first_name].join).to include("入力必須")
+      end
+      it "パスワード" do
+        user = User.new(
+          first_name: "太郎",
+          last_name: "田中",
+          email: "test@test.com",
+          password: "",
+          )
+        expect(user).to be_invalid
+        expect(user.errors[:password].join).to include("入力必須")
+      end
     end
   end
 end

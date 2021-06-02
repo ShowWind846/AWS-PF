@@ -11,6 +11,9 @@ class Corp < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_corp_notifications, class_name: "Notification", foreign_key: "visited_corp_id", dependent: :destroy
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   enum area: {
     "---": 0,
     北海道: 1, 青森県: 2, 岩手県: 3, 宮城県: 4, 秋田県: 5, 山形県: 6, 福島県: 7,

@@ -19,19 +19,19 @@
       </div>
       <div class="field row">
         <div class="col-12">
-          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "ＰＣ・携帯どちらでも可"  %>
         </div>
       </div>
       <div class="field row">
         <div class="col-12">
-          <%= f.label :company, "所属会社名" %><br />
+          <%= f.label :company, "所属会社名" %>
           <%= f.text_field :company, class: "form-control", placeholder: "例）SUGGESTooL株式会社"  %>
         </div>
       </div>
       <div class="field row">
         <div class="col-12">
-          <%= f.label :area, "担当エリア" %><br />
+          <%= f.label :area, "担当エリア" %>
           <%= f.select :area, User.areas.keys, {}, class: "form-control" %>
         </div>
       </div>
