@@ -58,12 +58,15 @@ SUGGESTooL ( サジェスツール )
   - devise
   - refile
   - kaminari
-  - Rubocop
+  - Rubocop(-airbnb)
+- テスト
+  - RSpec
+  - capybara
   <br>
 - インフラ
   - EC2
   - RDS
-  - EBS
+  - S3
 
 
 
