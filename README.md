@@ -62,14 +62,10 @@ SUGGESTooL ( サジェスツール )
 - テスト
   - RSpec
   - capybara
-  <br>
 - インフラ
   - EC2
   - RDS
   - S3
-
-
-
 
 ## 機能一覧
 
