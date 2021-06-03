@@ -7,6 +7,10 @@ RSpec.describe "テスト" do
     end
     subject { page }
     context "リンクが存在するか" do
+      it "test" do
+        get ""
+        expect(response.status).to eq 200
+      end
       it "タイトルがroot_pathへのリンクになっているか" do
         is_expected.to have_link "SUGGESTooL", href: root_path
       end

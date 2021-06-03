@@ -5,6 +5,12 @@ RSpec.describe User, "モデルに関するテスト", type: :model do
     it "有効な登録内容の場合は保存されるか" do
       expect(FactoryBot.build(:user)).to be_valid
     end
+    context "アクセスのテスト" do
+      it "" do
+        get :show
+        expect(response).to be_success
+      end
+    end
     context "空白のバリデーションチェック" do
       it "メールアドレス" do
         user = User.new(
@@ -45,6 +51,11 @@ RSpec.describe User, "モデルに関するテスト", type: :model do
           )
         expect(user).to be_invalid
         expect(user.errors[:password].join).to include("入力必須")
+      end
+    end
+    context "ログインテスト" do
+      before do
+        @user = FactroyBot.build(:user)
       end
     end
   end
