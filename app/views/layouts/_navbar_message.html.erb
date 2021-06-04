@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <div class="login-user-image">
-    <%= attachment_image_tag current_user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+    <%= attachment_image_tag current_user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", class: "prof-image" %>
     <span><%= current_user.last_name + " " + current_user.first_name %></span>
   </div>
 <% elsif corp_signed_in? %>
   <div class="login-user-image">
-    <%= attachment_image_tag current_corp, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
+    <%= attachment_image_tag current_corp, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", class: "prof-image" %>
     <span><%= current_corp.last_name + " " + current_corp.first_name %></span>
   </div>
 <% else %>

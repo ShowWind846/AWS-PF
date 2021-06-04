@@ -2,18 +2,18 @@
   <div class="profile">
     <div class="profile-header">
       <div class="name-and-image">
-        <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
+        <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", class: "prof-image" %>
         <p><%= @user.last_name + " " + @user.first_name %>（ <%= @user.company %> ）</p>
         <div class="setting-link">
-            <%= link_to new_post_path do %><i class="fas fa-edit"></i><% end %>
-            <%= link_to edit_user_registration_path do %><i class="fas fa-cog"></i><% end %>
+            <%= link_to new_post_path, class: "post_link" do %><i class="fas fa-edit"></i><% end %>
+            <%= link_to edit_user_registration_path, class: "edit_link" do %><i class="fas fa-cog"></i><% end %>
         </div>
       </div>
       <div class="comment">
         <div class="balloon">
           <p>　<%= @user.introduction %>　</p>
         </div>
-      </div>
+    </div>
       <div class="row">
         <div class="col-6">
           <%= link_to root_path, class: "btn btn-outline-info disabled rounded-pill w-100" do %>

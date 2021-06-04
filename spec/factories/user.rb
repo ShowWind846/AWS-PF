@@ -8,6 +8,7 @@ FactoryBot.define do
   end
 
   factory :testuser, class: User do
+    id                    {999}
     last_name             {"田中"}
     first_name            {"たかし"}
     email                 {"test@example.com"}
