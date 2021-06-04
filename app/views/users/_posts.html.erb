@@ -4,8 +4,12 @@
       <div class="post-title">
         <i class="fas fa-sticky-note mr-2"></i><%= post.title %>
         <div class="post-edit">
-          <%= link_to edit_post_path(post.id) do %><i class="fas fa-cog"></i><% end %>
-          <%= link_to post_path(post.id), method: :delete,  data: {confirm: "このポストを削除してよろしいですか？"} do %><i class="fas fa-trash"></i><% end %>
+          <%= link_to edit_post_path(post.id), class: "post_edit_link" do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+          <%= link_to post_path(post.id), method: :delete, class: "post_destroy_link", data: {confirm: "このポストを削除してよろしいですか？"} do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
         </div>
       </div>
       <div class="post-contents mt-1">

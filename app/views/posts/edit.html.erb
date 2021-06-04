@@ -2,7 +2,7 @@
   <div class="post-edit-page">
     <div class="post-style">
       <div class="post-style-width">
-        <p>　新規ポストを作成する　</p>
+        <p>　ポストを編集する　</p>
         <%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
 
           <%= f.text_field :title, class: "form-control mb-2" %>
@@ -10,7 +10,7 @@
           <%= f.attachment_field :post_image, class: "form-control-file mb-3" %>
           <%= f.select :category, Post.categories.keys, {prompt: "カテゴリを選択してください"}, class: "custom-select mb-3" %>
           <br>
-          <%= f.submit "　更新する　", class: "btn btn-info mb-2 d-block ml-auto" %>
+          <%= f.submit "　更新する　", class: "btn btn-info mb-2 d-block ml-auto post_update_link" %>
 
         <% end %>
       </div>

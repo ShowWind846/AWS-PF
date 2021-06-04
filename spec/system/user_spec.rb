@@ -47,33 +47,37 @@ RSpec.describe "セールス機能テスト", type: :system do
           fill_in("user[current_password]", with: "test0141")
           find_button("Update").click
           expect(page).to have_content("４月入社の新入社員です。")
+          expect(current_path).to eq("/user/mypage")
+          expect(page).to have_css ".post_link"
         end
       end
     end
-    context "投稿機能" do
-      before do
+    context "投稿機能(POST)" do
+      before "仮の投稿をセット" do
         first(:css, ".post_link").click
+        # 全てのフォームに値をセットする
+        fill_in("post[title]", with: "投稿のテスト")
+        fill_in("post[contents]",with: "投稿のテストを行います。")
+        select "新製品", from: "post[category]"
+        attach_file("post[post_image]", "app/assets/images/help-image.png")
+        click_on "投稿する"
       end
-      it "正しいフォーム・リンクが配置されているか" do
+      it "正常にPOSTできているか" do
         aggregate_failures do
-          expect(current_path).to eq("/posts/new")
-          expect(page).to have_field("post[title]")
-          expect(page).to have_field("post[contents]")
-          expect(page).to have_select("post[category]")
-          expect(page).to have_button("投稿する")
-          expect(page).to have_link("マイページに戻る", href: "/user/mypage")
-        end
-      end
-      it "正常にPOSTできるか" do
-        aggregate_failures do
-          # フォームの項目は全て入力させている。
-          fill_in("post[title]", with: "投稿のテスト")
-          fill_in("post[contents]",with: "投稿のテストを行います。")
-          select "新製品", from: "post[category]"
-          attach_file("post[post_image]", "app/assets/images/help-image.png")
-          click_on "投稿する"
           expect(current_path).to eq "/user/mypage"
           expect(page).to have_content("投稿のテスト")
+          expect(page).to have_css(".post_edit_link")
+          expect(page).to have_css(".post_destroy_link")
+        end
+      end
+      it "ポストを編集する。" do
+        aggregate_failures "test" do
+          find(:css, ".post_edit_link").click
+          expect(page).to have_content("ポストを編集する")
+          fill_in("post[title]", with: "新製品が発売しました。")
+          find(:css, ".post_update_link").click
+          expect(current_path).to eq "/user/mypage"
+          expect(page).to have_content("新製品が発売しました。")
         end
       end
     end
