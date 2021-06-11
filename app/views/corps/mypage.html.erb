@@ -2,11 +2,13 @@
   <div class="profile">
     <div class="profile-header">
       <div class="name-and-image">
-        <%= attachment_image_tag @corp, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", size: "100x100", class: "prof-image" %>
+        <%= attachment_image_tag @corp, :profile_image, size: "100x100", format: 'png', fallback: "no_image.png", class: "prof-image" %>
         <p><%= @corp.last_name + " " + @corp.first_name %> </p>
         <div class="setting-link">
           <% if @corp.id == current_corp.id %>
-            <%= link_to edit_corp_registration_path do %><i class="fas fa-cog"></i><% end %>
+            <%= link_to edit_corp_registration_path, id: "to_edit" do %>
+              <i class="fas fa-cog"></i>
+            <% end %>
           <% end %>
         </div>
       </div>

@@ -1,29 +1,29 @@
 <main>
   <div class="follow-page">
-    <span class="corp-page-title">　フォローしているセールス一覧　</span>
-    <table class="table table-hover follow-table">
+    <span class="page-title">　フォロー中のセールス　</span>
+    <table class="table-style flex-table flex-fixhead-table table-hover">
       <thead bgcolor="#EEE">
-        <th width="140px">名前</th>
-        <th >会社名</th>
-        <th width="110px"><p class="display-none">担当エリア</p></th>
-        <th width="180px"><p class="display-none">メッセージ</p></th>
-        <th width="120px"></th>
+        <th width="15%">名前</th>
+        <th width="25%">会社名</th>
+        <th width="20%">担当エリア</th>
+        <th width="20%">メッセージ</th>
+        <th width="20%"></th>
       </thead>
       <tbody>
         <% @relationships.each do |relationship| %>
         <% @user = User.find(relationship.user_id) %>
         <% @room = Room.find_by(relationship_id: relationship.id) %>
         <tr>
-          <td class="align-middle sales-index-name">
+          <td class="sales-index-name align-items">
             <%= link_to user_path(@user.id) do %>
-              <%= attachment_image_tag @user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "profile-image" %>
+              <%= attachment_image_tag @user, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "profile-image mr-1" %>
               <%= @user.last_name + " " + @user.first_name %>
             <% end %>
           </td>
-          <td class="align-middle"><%= @user.company %></td>
-          <td class="align-middle" class="sales-area"><%= @user.area %></td>
-          <td class="align-middle"><%= link_to " メッセージを送る ", room_path(@room.id), class: "btn btn-outline-primary" %> </td>
-          <td class="align-middle">
+          <td><%= @user.company %></td>
+          <td class="sales-area"><%= @user.area %></td>
+          <td><%= link_to " メッセージを送る ", room_path(@room.id), class: "btn btn-outline-primary" %> </td>
+          <td>
             <div id="follow_button_<%= @user.id %>">
               <%= render partial: 'relationships/follow', locals: {user: @user} %>
             </div>
@@ -32,6 +32,5 @@
         <% end %>
       </tbody>
     </table>
-
   </div>
 </main>

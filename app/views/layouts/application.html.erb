@@ -13,197 +13,139 @@
     <%= render "layouts/flash" %>
     <div class="headers">
       <div class="first-header">
-        <!-- navbarの記述 -->
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #008080;">
           <%= link_to "SUGGESTooL", root_path, class: "title-logo" %>
-          <!-- Navmenu pill部分  -->
-          <ul class="nav nav-pills ml-auto" id="nav-tab" role="tablist">
-            <li class="nav-item">
-                  <a href="#sales" class="nav-link active pill-style mr-2" id="sales-tab" data-toggle="tab" role="tab" area-controls="sales" area-selected="true">
-                    <i class="fas fa-user-tie"> セールス</i>
-                  </a>
-                </li>
-            <li class="nav-item">
-                  <a href="#doctor" class="nav-link pill-style" id="doctor-tab" data-toggle="tab" role="tab" aria-controls="doctor" aria-selected="false">
-                    <i class="fas fa-user-md"> ドクター</i>
-                  </a>
-                </li>
-          </ul>
+          <div class="current-page-inform ml-auto">
+            <%= link_to new_corp_session_path, class: "btn btn-info", id: "doctor-btn"  do %><i class="fas fa-stethoscope"></i><% end %>
+            <%= link_to new_user_session_path, class: "btn btn-info", id: "sales-btn" do %><i class="fas fa-user-tie"></i><% end %>
+          </div>
         </nav>
       </div>
       <div class="second-header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light second-navbar">
           <div class="container-fluid">
             <div class="login-message">
-            <%= render "layouts/navbar_message" %>
-          </div>
+              <%= render "layouts/navbar_message" %>
+            </div>
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse tab-content justify-content-end" id="navbarNavDropdown">
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="sales" role="tabpanel" aria-labelledby="sales-tab">
-                <!--上記の表示以下、ユーザーメニューの記述-->
-                  <ul class="navbar-nav">
-                    <!--ログイン時-->
-                    <% if user_signed_in? %>
-                      <li class="nav-item">
-                        <%= link_to user_mypage_path, class: "nav-link" do %>
-                          <i class="fas fa-user"> マイページ</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to notifications_path, class: "nav-link" do %>
-                          <% if unchecked_notifications.any? %>
-                            <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
-                          <% else %>
-                            <i class="fas fa-circle"> 通知</i>
-                          <% end %>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to user_followers_path, class: "nav-link" do %>
-                          <i class="fas fa-users"> フォロワー</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
-                          <i class="fas fa-sign-out-alt"> ログアウト</i>
-                        <% end %>
-                      </li>
-                    <% elsif corp_signed_in? %>
-                      <li class="nav-item">
-                    <%= link_to corp_mypage_path, class: "nav-link" do %>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+              <ul class="navbar-nav" id="navigation">
+                <% if user_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to user_mypage_path, class: "nav-link", id: "to_mypage" do %>
                       <i class="fas fa-user"> マイページ</i>
                     <% end %>
-                    </li>
-                      <li class="nav-item">
-                          <%= link_to notifications_path, class: "nav-link" do %>
-                            <% if corp_unchecked_notifications.any? %>
-                              <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
-                            <% else %>
-                              <i class="fas fa-circle"> 通知</i>
-                            <% end %>
-                          <% end %>
-                        </li>
-                      <li class="nav-item">
-                        <%= link_to corp_search_path, class: "nav-link" do %>
-                          <i class="fas fa-users"> セールスを探す</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to follows_path, class: "nav-link" do %>
-                          <i class="fas fa-user-tag"> フォロー</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
-                        <i class="fas fa-sign-out-alt"> ログアウト</i>
-                        <% end %>
-                      </li>
-                    <% else %>
-                      <li class="nav-item">
-                        <%= link_to user_about_path,class: "nav-link" do %>
-                          <i class="fas fa-question-circle"> サービスについて</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to new_user_session_path,class: "nav-link" do %>
-                          <i class="fas fa-sign-in-alt"> ログイン(セールス)</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to new_user_registration_path, class: "nav-link" do %>
-                          <i class="fas fa-address-card"> 新規登録</i>
-                        <% end %>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-                <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
-                <!--この表記以下、ドクター用メニューの記述-->
-                  <ul class="navbar-nav">
-                    <% if user_signed_in? %>
-                      <li class="nav-item">
-                          <%= link_to user_mypage_path, class: "nav-link" do %>
-                            <i class="fas fa-user"> マイページ</i>
-                          <% end %>
-                        </li>
-                      <li class="nav-item">
-                          <%= link_to notifications_path, class: "nav-link" do %>
-                            <% if unchecked_notifications.any? %>
-                              <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
-                            <% else %>
-                              <i class="fas fa-circle"> 通知</i>
-                            <% end %>
-                          <% end %>
-                        </li>
-                      <li class="nav-item">
-                          <%= link_to user_followers_path, class: "nav-link" do %>
-                            <i class="fas fa-users"> フォロワー</i>
-                          <% end %>
-                        </li>
-                      <li class="nav-item">
-                          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
-                            <i class="fas fa-sign-out-alt"> ログアウト</i>
-                          <% end %>
-                        </li>
-                    <% elsif corp_signed_in? %>
-                      <li class="nav-item">
-                      <%= link_to corp_mypage_path, class: "nav-link" do %>
-                        <i class="fas fa-user"> マイページ</i>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to notifications_path, class: "nav-link", id: "to_notifications" do %>
+                      <% if unchecked_notifications.any? %>
+                        <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
+                      <% else %>
+                        <i class="fas fa-circle"> 通知</i>
                       <% end %>
-                      </li>
-                      <li class="nav-item">
-                          <%= link_to notifications_path, class: "nav-link" do %>
-                            <% if corp_unchecked_notifications.any? %>
-                              <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
-                            <% else %>
-                              <i class="fas fa-circle"> 通知</i>
-                            <% end %>
-                          <% end %>
-                        </li>
-                      <li class="nav-item">
-                        <%= link_to corp_search_path, class: "nav-link" do %>
-                          <i class="fas fa-users"> セールスを探す</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to follows_path, class: "nav-link" do %>
-                          <i class="fas fa-user-tag"> フォロー</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link", data: {confirm: "ログアウトしてよろしいですか？"} do %>
-                        <i class="fas fa-sign-out-alt"> ログアウト</i>
-                        <% end %>
-                      </li>
-                    <% else %>
-                      <li class="nav-item">
-                        <%= link_to corp_about_path,class: "nav-link" do %>
-                          <i class="fas fa-question-circle"> サービスについて</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to new_corp_session_path,class: "nav-link" do %>
-                          <i class="fas fa-sign-in-alt"> ログイン(ドクター)</i>
-                        <% end %>
-                      </li>
-                      <li class="nav-item">
-                        <%= link_to new_corp_registration_path, class: "nav-link" do %>
-                          <i class="fas fa-address-card"> 新規登録</i>
-                        <% end %>
-                      </li>
                     <% end %>
-                  </ul>
-                </div>
-              </div>
-            <!--ナビタブコンテンツここまで-->
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to user_followers_path, class: "nav-link", id: "to_followers" do %>
+                      <i class="fas fa-users"> フォロワー</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", id: "to_logout", data: {confirm: "ログアウトしてよろしいですか？"} do %>
+                      <i class="fas fa-sign-out-alt"> ログアウト</i>
+                    <% end %>
+                  </li>
+                  <span id="slide-line"></span>
+                <% elsif corp_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to corp_mypage_path, class: "nav-link", id: "to_mypage" do %>
+                      <i class="fas fa-user"> マイページ</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to notifications_path, class: "nav-link", id: "to_notifications" do %>
+                      <% if corp_unchecked_notifications.any? %>
+                        <font color="red"><i class="fas fa-exclamation-circle"> 通知</i></font>
+                      <% else %>
+                        <i class="fas fa-circle"> 通知</i>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to corp_search_path, class: "nav-link", id: "to_search" do %>
+                      <i class="fas fa-users"> セールスを探す</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to follows_path, class: "nav-link", id: "to_follows" do %>
+                      <i class="fas fa-user-tag"> フォロー</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_corp_session_path, method: :delete, class: "nav-link",
+                    id: "to_logout", data: {confirm: "ログアウトしてよろしいですか？"} do %>
+                      <i class="fas fa-sign-out-alt"> ログアウト</i>
+                    <% end %>
+                  </li>
+                  <span id="slide-line"></span>
+                <% else %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-question-circle"> ヘルプ</i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/corp/about">ドクター</a>
+                      <a class="dropdown-item" href="/user/about">セールス</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-sign-in-alt"> ログイン</i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/corps/sign_in">ドクター</a>
+                      <a class="dropdown-item" href="/users/sign_in">セールス</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-address-card"> 新規登録</i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/corps/sign_up">ドクター</a>
+                      <a class="dropdown-item" href="/users/sign_up">セールス</a>
+                    </div>
+                  </li>
+                  <span id="slide-line"></span>
+                <% end %>
+              </ul>
             </div>
           </div>
         </nav>
       </div>
     </div>
+    <!--nav pulltabの切替のためのscript-->
+    <% if user_signed_in? %>
+      <script>
+        $(document).on('turbolinks:load', function(){
+          $("#sales-btn").css({
+            "background-color": "#F8A055",
+            "border-color": "#FFA07A"
+          });
+        });
+      </script>
+    <% elsif corp_signed_in? %>
+      <script>
+        $(document).on('turbolinks:load', function(){
+          $("#doctor-btn").css({
+            "background-color": "#F8A055",
+            "border-color": "#FFA07A"
+          });
+        });
+      </script>
+    <% end %>
     <%= yield %>
   </body>
 </html>

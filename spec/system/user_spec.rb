@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "セールス機能テスト", type: :system do
+RSpec.describe "セールス機能(E2E)", type: :system do
   describe "ユーザー認証" do
     before do
       FactoryBot.create(:testuser) #user = error になるのなんで？
@@ -24,10 +24,10 @@ RSpec.describe "セールス機能テスト", type: :system do
       end
       it "ナビゲーションバーのリンクが適切か" do
         aggregate_failures do
-          expect(page).to have_link "", href: "/user/mypage"
-          expect(page).to have_link "", href: "/notifications"
-          expect(page).to have_link "", href: "/user/followers"
-          expect(page).to have_link "", href: "/users/sign_out"
+          expect(page).to have_link "マイページ", href: "/user/mypage"
+          expect(page).to have_link "通知", href: "/notifications"
+          expect(page).to have_link "フォロワー", href: "/user/followers"
+          expect(page).to have_link "ログアウト", href: "/users/sign_out"
         end
       end
     end
@@ -52,8 +52,8 @@ RSpec.describe "セールス機能テスト", type: :system do
         end
       end
     end
-    context "投稿機能(POST)" do
-      before "仮の投稿をセット" do
+    context "投稿機能(Post)" do
+      before "ポスト作成" do
         first(:css, ".post_link").click
         # 全てのフォームに値をセットする
         fill_in("post[title]", with: "投稿のテスト")
@@ -62,7 +62,7 @@ RSpec.describe "セールス機能テスト", type: :system do
         attach_file("post[post_image]", "app/assets/images/help-image.png")
         click_on "投稿する"
       end
-      it "正常にPOSTできているか" do
+      it "各リンク確認" do
         aggregate_failures do
           expect(current_path).to eq "/user/mypage"
           expect(page).to have_content("投稿のテスト")
@@ -70,7 +70,7 @@ RSpec.describe "セールス機能テスト", type: :system do
           expect(page).to have_css(".post_destroy_link")
         end
       end
-      it "ポストを編集する。" do
+      it "ポスト編集機能" do
         aggregate_failures "test" do
           find(:css, ".post_edit_link").click
           expect(page).to have_content("ポストを編集する")
@@ -80,11 +80,47 @@ RSpec.describe "セールス機能テスト", type: :system do
           expect(page).to have_content("新製品が発売しました。")
         end
       end
+      it "ポスト削除機能" do
+        aggregate_failures do
+          expect(page).to have_content("投稿のテスト")
+          find(:css, ".post_destroy_link").click
+          expect(current_path).to eq "/user/mypage"
+          expect(page).to have_no_content("投稿のテスト")
+        end
+      end
+      it "編集せずにマイページへ戻る" do
+        aggregate_failures do
+          find(:css, ".post_edit_link").click
+          find(:css, ".back_to_mypage").click
+          expect(current_path).to eq "/user/mypage"
+        end
+      end
+    end
+    context "通知機能(Notification)" do
+      # 通知機能テストのためには、ドクターからフォロー/メッセージが必要。
+      it "遷移テスト" do
+        aggregate_failures do
+          expect(current_path).to eq "/user/mypage"
+          expect(page).to have_link "通知", href: "/notifications"
+          first(:css, "#to_notifications").click
+          expect(current_path).to eq "/notifications"
+        end
+      end
+      it "viewテスト" do
+      end
+      it "機能テスト" do
+      end
+    end
+    context "フォロワー機能" do
+      # フォロワー機能テストのためにはドクターからフォローが必要。
+      it "フォロワー一覧ページ" do
+      end
     end
     context "ログアウトを押下" do
       it "ユーザーログインページへ遷移" do
-         click_on("ログアウト", match: :first)
-         expect(current_path).to eq "/users/sign_in"
+        expect(current_path).to eq "/user/mypage"
+        click_on("ログアウト", match: :first)
+        expect(current_path).to eq "/users/sign_in"
       end
     end
   end

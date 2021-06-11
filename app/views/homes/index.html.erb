@@ -13,13 +13,17 @@
           <div class="login-link">
             <div class="doctor-menu">
               <p class="login-link-menu">ドクターの方</p>
-              <%= link_to "　新規登録　",new_corp_registration_path, class: "btn btn-primary w-100" %><br>
-              <%= link_to "　ログイン　",new_corp_session_path,class: "btn btn-primary w-100 mt-3" %>
+              <%= link_to "　新規登録　",new_corp_registration_path,
+              class: "btn btn-primary w-100", id: "to_corp_registration" %><br>
+              <%= link_to "　ログイン　",new_corp_session_path,
+              class: "btn btn-primary w-100 mt-3", id: "to_corp_login" %>
             </div>
             <div class="sales-menu">
               <p class="login-link-menu">セールスの方</p>
-              <%= link_to "　新規登録　",new_user_registration_path, class: "btn btn-info w-100" %><br>
-              <%= link_to "　ログイン　",new_user_session_path,class: "btn btn-info top-btn mt-3 w-100" %>
+              <%= link_to "　新規登録　",new_user_registration_path,
+              class: "btn btn-info w-100", id: "to_user_registration"%><br>
+              <%= link_to "　ログイン　",new_user_session_path,
+              class: "btn btn-info top-btn mt-3 w-100", id: "to_user_login" %>
             </div>
           </div>
         </div>

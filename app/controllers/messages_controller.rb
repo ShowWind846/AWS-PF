@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :require_permission
+
   def create
     if user_signed_in?
       @messenger = current_user
@@ -25,8 +27,12 @@ class MessagesController < ApplicationController
   end
 
   private
-
   def message_params
     params.permit(:message, :user_id, :corp_id, :room_id)
+  end
+  def require_permission
+    unless user_signed_in? || corp_signed_in?
+      redirect_to root_path, alert: "連絡機能のご利用にはログインが必要です。"
+    end
   end
 end

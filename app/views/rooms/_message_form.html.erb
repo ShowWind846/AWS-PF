@@ -1,13 +1,14 @@
 <div class="message-form-area" id="message_form">
   <%= form_with model: message, url: messages_path, remote: true do |f| %>
     <%= f.text_field :message, class: "message-form", placeholder: "ここにメッセージを入力してください" %>
-    <!--hidden-->
+    <!--hidden_field-->
     <%= f.hidden_field :room_id, value: params[:id] %>
       <% if user_signed_in? %>
         <%= f.hidden_field :user_id, value: current_user.id %>
       <% elsif corp_signed_in? %>
         <%= f.hidden_field :corp_id, value: current_corp.id %>
       <% end %>
-    <%= f.submit "　送信　", class: "btn btn-sm btn-info font-weight-bold submit-form" %>
+    <!--hidden_field-->
+    <%= f.submit "　送信　", class: "btn btn-sm btn-info font-weight-bold" %>
   <% end %>
 </div>

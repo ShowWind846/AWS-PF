@@ -1,36 +1,33 @@
-<div class="talkroom-page">
-  <div class="talkroom-header">
-
-  <div class="TitleAndUser">
-    <span class="talkroom-title">　トークルーム　</span>
-    <div class="talkroom-user">
-      <span class="invisible-sp">member :</span> [
-      <%= link_to user_path(@user.id) do %><%= @user.last_name + " " + @user.first_name %><% end %> /
-      <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
+  <div class="talkroom-page">
+    <div class="talkroom-header">
+      <div class="title-area">
+        <span class="talkroom-title">　トークルーム　</span>
+        <div class="talkroom-user">
+          <span class="invisible-sp">member :</span> [
+          <%= link_to user_path(@user.id) do %><%= @user.last_name + " " + @user.first_name %><% end %> /
+          <%= link_to corp_path(@corp.id) do %><%= @corp.last_name + " " + @corp.first_name %><% end %> ]
+        </div>
+      </div>
+      <div class="message-form-area">
+        <%= render partial: "message_form", locals: { message: @message } %>
+      </div>
+    </div>
+    <div class="message-area">
+      <table class="message-table table-borderless table-hover m-0 align-middle">
+        <tbody>
+          <% @messages.each do |message| %>
+            <% if message.corp_id.nil? %>
+              <% @messenger = User.find(message.user_id) %>
+            <% else %>
+              <% @messenger = Corp.find(message.corp_id) %>
+            <% end %>
+            <!--message-tableのrowを挿入してる-->
+            <%= render partial: "rooms/message_area", locals: {message: message} %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="message-paginate">
+      <%= paginate @messages %>
     </div>
   </div>
-  <div id="message_form">
-    <%= render partial: "message_form", locals: { message: @message } %>
-  </div>
-  </div>
-  <div class="message-area">
-    <table class="message-table table-borderless table-hover m-0 align-middle">
-      <tbody>
-        <% @messages.each do |message| %>
-          <% if message.corp_id.nil? %>
-            <% @messenger = User.find(message.user_id) %>
-          <% else %>
-            <% @messenger = Corp.find(message.corp_id) %>
-          <% end %>
-          <!--message-tableのrowを挿入してる-->
-          <%= render partial: "rooms/message_area", locals: {message: message} %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="message-paginate">
-    <%= paginate @messages %>
-  </div>
-
-</div>

@@ -90,16 +90,44 @@
     border-bottom: double;
     display: inline-block;
   }
+  .table-style {
+    font-size: 15px;
+    width: 100%;
+    border: 1px solid #DDD;
+    box-shadow: 0 1px 1px #DDD;
+  }
+  .table-style thead {
+    border: 1px solid #DDD;
+  }
+  .table-style th ,.table-style td{
+    color: grey;
+    padding: 5px;
+    white-space: nowrap;
+    border-bottom: 1px solid #DDD;
+  }
+  .table-style td a {
+    text-decoration: none;
+  }
 
-  //ヘッダー
+  //header
   .headers {
     z-index: 30;
     position: sticky;
     top: 0;
   }
-    //ヘッダー　その１
+    //header1
+    .first-header {
+      box-shadow: 0 3px 3px #008080;
+    }
+    #doctor-btn {
+      margin-right: 5px;
+    }
     .first-header a {
       color: white;
+      text-decoration: none;
+    }
+    .first-header .navbar {
+      padding: 5px 20px;
     }
     .title-logo {
       color: white;
@@ -114,27 +142,68 @@
     .nav-item>.active {
       background-color: #F96 !important;
     }
-    //ヘッダー　その２
+    //header2
     .user-image {
       margin-right: 20px;
     }
     .second-header {
       color: white;
       background-color: #6699FF;
+      box-shadow: 0 2px 2px #DDD;
+    }
+    .second-header .navbar {
+      padding: 0;
+    }
+    #navigation .nav-item {
+      height: 50px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      min-width: 0;
+      padding: 0.5rem 0.5rem;
+    }
+    .navbar-toggler {
+      padding: 0 2px;
+      margin-right: 20px;
     }
     .login-message {
+      height: 50px;
+      display: flex;
+      align-items: center;
       color: grey;
-      vertical-align: middle;
+      padding-left: 20px;
     }
     .login-message p {
       font-size: 15px;
-      margin-top: 10px;
+      margin: 0;
     }
     .login-user-image span {
       font-size: 15px;
       font-weight: bold;
       display: inline-block;
       margin: 7px 0 0 10px;
+    }
+    #to_follows {
+      width: 94px;
+    }
+    //header javascript
+    .current {
+      opacity: 1 !important;
+    }
+    #navigation {
+      position: relative;
+    }
+    #slide-line {
+      height: 2px;
+      background-color: grey;
+      position: absolute;
+      bottom: 0;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
     }
 
   //その他

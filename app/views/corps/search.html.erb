@@ -1,19 +1,19 @@
 <main>
   <div class="user-search-page">
     <div class="search-header">
-      <span class="corp-page-title">　興味のあるセールスを探す　</span>
+      <span class="page-title">　興味のあるセールスを探す　</span>
       <div class="search-area">
         <%= render 'search_form', url: corp_search_path, q: @q %>
       </div>
     </div>
 
     <div class="contents">
-      <table class="table table-hover sales-index-table">
+      <table class="table table-hover sales-index-table table-style">
         <thead bgcolor="#EEE">
-          <th width="200px">名前</th>
-          <th witdh="240px">会社名</th>
-          <th witdh="240px" class="sales-area">担当エリア</th>
-          <th width="120px">フォロー</th>
+          <th width="25%">名前</th>
+          <th witdh="25%">会社名</th>
+          <th witdh="25%" class="sales-area">担当エリア</th>
+          <th width="25%">フォロー</th>
         </thead>
         <tbody>
           <% @users.each do |user| %>

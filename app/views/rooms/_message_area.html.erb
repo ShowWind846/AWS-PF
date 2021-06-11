@@ -1,13 +1,13 @@
 <tr id="message_row_<%= message.id %>">
   <!--ユーザープロフィール画像-->
-  <td width="40px">
+  <td width="5%">
     <div class="messenger-image">
       <%= attachment_image_tag @messenger, :profile_image, size: "40x40", format: 'png', fallback: "no_image.png", size: "40x40", class: "prof-image" %>
     </div>
   </td>
   <!--メッセージ本文-->
-  <td width="450px">
-    <div class="message-area">
+  <td width="85%">
+    <div class="message-text">
       <% if message.corp_id == nil %>
         <div class="fukidashi">
           <%= message.message %>
@@ -20,7 +20,7 @@
     </div>
   </td>
   <!--削除ボタンと備考-->
-  <td width="110px">
+  <td width="10%">
     <div class="messenger-name text-center">
       <% if corp_signed_in? && message.corp_id != nil %>
         <p><%= link_to message_path(message.id), data: { confirm: "このメッセージを削除してよろしいですか？" }, method: :delete, remote: true do %><i class="fas fa-trash-alt"></i><% end %></p>

@@ -1,4 +1,6 @@
 class NotificationsController < ApplicationController
+  before_action :require_permission
+
   def index
     if user_signed_in?
       @notifications = current_user.passive_notifications.page(params[:page]).per(10)
@@ -19,5 +21,12 @@ class NotificationsController < ApplicationController
   def destroy_all
     @notifications = current_user.passive_notifications.destroy_all
     redirect_to notifications_path
+  end
+
+  private
+  def require_permission
+    unless user_signed_in? || corp_signed_in?
+      redirect_to root_path, alert: "連絡機能のご利用にはログインが必要です。"
+    end
   end
 end
