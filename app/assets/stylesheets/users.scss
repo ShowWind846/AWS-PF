@@ -14,7 +14,7 @@
   margin: 0 auto;
   margin-top: 20px;
 }
-
+//ポスト表示
 .post-style {
     padding: 5px;
     color: grey;
@@ -66,20 +66,16 @@
 .sales-index-name a {
   color: grey;
 }
-
 /////ユーザー詳細ページ/////
 .user-show-page {
   width: 600px;
   margin: 0 auto;
 }
-
 // アバウトページ
-  .user-about-page a {
+.user-about-page a {
     font-weight: bold;
     color: #099;
   }
-  
-
 //ユーザー：フォロワー一覧
 .follower-page {
   width: 600px;

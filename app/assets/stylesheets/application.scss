@@ -17,8 +17,8 @@
 
  @import "bootstrap";
  @import "font-awesome";
- /////全てのページに適用するCSS/////
 
+ /////全てのページに適用するCSS/////
   * {
     margin: 0;
     padding: 0;
@@ -107,6 +107,31 @@
   }
   .table-style td a {
     text-decoration: none;
+  }
+  .border-line {
+    border: 1px solid #DDD;
+    box-shadow: 0 2px 2px #DDD;
+  }
+  .page-title {
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-color: #099;
+    padding: 7px 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  .session-title {
+    margin: 0 auto;
+    width: 100%;
+    font-weight: 20px;
+    line-height: 40px;
+    color: white;
+    background-color: #099;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+    padding-left: 5px;
   }
 
   //header
@@ -206,24 +231,6 @@
       -webkit-transition: all .3s ease;
     }
 
-  //その他
-  .page-title {
-    color: white;
-    font-weight: bold;
-    background-color: #099;
-    padding: 7px 5px;
-    display: inline-block;
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  .corp-page-title {
-    color: white;
-    background-color: #F96;
-    padding: 5px;
-    display: inline-block;
-    margin-bottom: 15px;
-  }
-
   //セールス側新規登録ページ/////
   .sign-up-page {
     width: 600px;
@@ -250,16 +257,6 @@
   .session-page a {
       color: #099;
     }
-  .session-title {
-      margin: 0 auto;
-      width: 100%;
-      font-weight: 20px;
-      line-height: 40px;
-      color: white;
-      font-weight: bold;
-      background-color: #099;
-      border-radius: 5px;
-    }
   .confirm-password span {
       font-size: 14px;
       margin-left: 10px;
@@ -276,7 +273,6 @@
       margin: 0 auto;
       color: grey;
     }
-
 /////マイページ/////
 .mypage {
     width: 800px;
@@ -289,7 +285,6 @@
     color: grey;
     font-size: 14px;
   }
-
 //アバウトページ
 .about-page {
   width: 560px;
@@ -298,30 +293,43 @@
   padding-top: 20px;
   color: grey;
 }
-.about-page p {
+.about-text {
+  margin-top: 10px;
+}
+.about-text p {
+  letter-spacing: 1px;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
 }
+.about-container {
+  border: 1px solid #DDD;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
 .submenu-head {
-    position: relative;
-  }
-.submenu-head p {
-    font-weight: bold;
-    font-size: 18px;
-    color: grey;
-    position: absolute;
-    top: 6px;
-    left: 5px;
-  }
+  position: relative;
+  border-top: 1px solid #CCC;
+}
 .submenu-head-img {
-    width: 100%;
-    height: 40px;
-    border-bottom: solid 1px #CCC;
-    border-top: solid 1px #CCC;
-    margin-bottom: 10px;
-  }
-
+  width: 100%;
+  height: 35px;
+  border-bottom: solid 1px #CCC;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22);
+}
+.submenu-head p {
+  white-space: nowrap;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: grey;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  -webkit-transform: ranslateY(-50%);
+}
 @media screen and (max-width: 600px) {
   .invisible-sp {
     display: none;
